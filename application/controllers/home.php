@@ -1,13 +1,5 @@
 <?php
 
-/**
- * Class Home
- *
- * Please note:
- * Don't use the same name for class and method, as this might trigger an (unintended) __construct of the class.
- * This is really weird behaviour, but documented here: http://php.net/manual/en/language.oop5.decon.php
- *
- */
 class Home extends Controller
 {
     /**
@@ -24,27 +16,27 @@ class Home extends Controller
 
     /**
      * PAGE: exampleone
-     * This method handles what happens when you move to http://yourproject/home/exampleone
+     * This method handles what happens when you move to http://yourproject/home/login
      * The camelCase writing is just for better readability. The method name is case-insensitive.
      */
-    public function exampleOne()
+    public function login()
     {
         // load views
         require APP . 'views/_templates/header.php';
-        require APP . 'views/home/example_one.php';
+        require APP . 'views/home/login.php';
         require APP . 'views/_templates/footer.php';
     }
 
     /**
      * PAGE: exampletwo
-     * This method handles what happens when you move to http://yourproject/home/exampletwo
+     * This method handles what happens when you move to http://yourproject/home/register
      * The camelCase writing is just for better readability. The method name is case-insensitive.
      */
-    public function exampleTwo()
+    public function register()
     {
         // load views
         require APP . 'views/_templates/header.php';
-        require APP . 'views/home/example_two.php';
+        require APP . 'views/home/register.php';
         require APP . 'views/_templates/footer.php';
     }
 }
