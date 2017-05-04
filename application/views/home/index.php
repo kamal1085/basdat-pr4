@@ -23,7 +23,7 @@
                         </fieldset>
                     </form>
                     <hr/>
-                    <div style="text-align: center;"><h4>ATAU</h4></div>
+                    <div style="text-align: center;"><h5>ATAU</h5></div>
                     <a class="btn btn-lg btn-primary btn-block" href="<?php echo URL; ?>index.php/register"
                        role="button">Daftar</a>
                 </div>
