@@ -20,31 +20,29 @@
                                 <div class="form-group">
                                     <label for="password" class="control-label">Password</label>
                                     <input class="form-control" placeholder="Password" name="password" type="password"
-                                           value="" required>
+                                           required>
                                 </div>
                                 <div class="form-group">
                                     <label for="repeat_password" class="control-label">Ulangi Password</label>
                                     <input class="form-control" placeholder="Ulangi Password" name="repeat_password"
-                                           type="password"
-                                           value="" required>
+                                           type="password" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="address" class="control-label">Alamat</label>
                                     <input class="form-control" placeholder="Alamat" name="address" type="text"
-                                           value="" required>
+                                           required>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="name" class="control-label">Nama</label>
                                     <input class="form-control" placeholder="Nama Lengkap" name="name" type="text"
-                                           value="" required>
+                                           required>
                                 </div>
                                 <div class="form-group">
                                     <label for="birth_date" class="control-label">Tanggal Lahir</label>
                                     <input class="form-control" placeholder="Tanggal Lahir" name="birth_date"
-                                           type="date"
-                                           value="" required>
+                                           type="date" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="gender" class="control-label">Jenis Kelamin</label>
@@ -58,7 +56,7 @@
                                 <div class="form-group">
                                     <label for="phone" class="control-label">No. Telepon</label>
                                     <input class="form-control" placeholder="No. Telepon" name="phone" type="tel"
-                                           value="" required>
+                                           required>
                                 </div>
                             </div>
                             <input class="btn btn-lg btn-success btn-block" type="submit" value="Daftar">

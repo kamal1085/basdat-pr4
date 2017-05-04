@@ -19,7 +19,7 @@
                             <div class="form-group">
                                 <label for="password" class="control-label">Password</label>
                                 <input class="form-control" placeholder="Password" name="password" type="password"
-                                       value="" required>
+                                       required>
                             </div>
                             <input class="btn btn-lg btn-success btn-block" type="submit" value="Login">
                         </fieldset>
