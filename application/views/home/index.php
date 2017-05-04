@@ -13,9 +13,11 @@
                     <form accept-charset="UTF-8" role="form">
                         <fieldset>
                             <div class="form-group">
+                                <label for="email" class="control-label">Email</label>
                                 <input class="form-control" placeholder="Email" name="email" type="email" required>
                             </div>
                             <div class="form-group">
+                                <label for="password" class="control-label">Password</label>
                                 <input class="form-control" placeholder="Password" name="password" type="password"
                                        value="" required>
                             </div>
