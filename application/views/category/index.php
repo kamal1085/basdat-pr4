@@ -49,7 +49,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="subcategory_name" class="control-label">Nama kategori</label>
-                                <input class="form-control" placeholder="Nama ubkategori" name="subcategory_name"
+                                <input class="form-control" placeholder="Nama subkategori" name="subcategory_name"
                                        type="text"
                                        required>
                             </div>
