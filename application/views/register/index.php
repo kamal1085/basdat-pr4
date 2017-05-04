@@ -48,8 +48,12 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="gender" class="control-label">Jenis Kelamin</label>
-                                    <input class="form-control" placeholder="Jenis Kelamin" name="gender" type="text"
-                                           value="" required>
+                                    <div>
+                                        <select name="gender" class="form-control">
+                                            <option value="1">Laki-laki</option>
+                                            <option value="0">Perempuan</option>
+                                        </select>
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="phone" class="control-label">No. Telepon</label>
