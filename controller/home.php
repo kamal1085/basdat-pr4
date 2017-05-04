@@ -17,7 +17,7 @@ class Home extends Controller
     {
         // load views
         require APP . 'view/_templates/header.php';
-        require APP . 'view/home/example_one.php';
+        require APP . 'view/home/login.php';
         require APP . 'view/_templates/footer.php';
     }
 

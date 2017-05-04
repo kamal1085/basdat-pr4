@@ -11,7 +11,7 @@
 <?php
 
 
-define('ROOT', dirname(__DIR__) . DIRECTORY_SEPARATOR . 'basdat' . DIRECTORY_SEPARATOR);
+define('ROOT', dirname(__FILE__) . DIRECTORY_SEPARATOR);
 define('APP', ROOT);
 
 
