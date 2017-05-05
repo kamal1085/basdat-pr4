@@ -37,6 +37,11 @@ $(document).ready(function() {
             // Remove element containing the fields
             $row.remove();
         });
+        var urlw = "<?php echo URL; ?>";
+        var path = urlw + window.location.pathname.substring(1);
+        console.log(urlw);
+$('.nav>li>a[href="' + path + '"]').parent().addClass('active');
+
 });
 </script>
 </body>

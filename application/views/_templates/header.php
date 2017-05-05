@@ -27,6 +27,7 @@ if (!$this) {
             <li><a href="<?php echo URL; ?>index.php/">Promo</a></li>
             <li><a href="<?php echo URL; ?>index.php/">Produk</a></li>
             <li><a href="<?php echo URL; ?>index.php/toko">Membuat Toko</a></li>
+            <li><a href="<?php echo URL; ?>index.php/shopping">Membeli Produk</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li><a href="<?php echo URL; ?>index.php/">Logout</a></li>
