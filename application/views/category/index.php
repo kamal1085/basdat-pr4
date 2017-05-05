@@ -2,22 +2,6 @@
     exit(header('HTTP/1.0 403 Forbidden'));
 } ?>
 
-<nav class="navbar navbar-default">
-    <div class="container">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="<?php echo URL; ?>index.php/">Tokokeren</a>
-        </div>
-        <ul class="nav navbar-nav">
-            <li class="active"><a href="<?php echo URL; ?>index.php/category">Kategori</a></li>
-            <li><a href="<?php echo URL; ?>index.php/">Jasa Kirim</a></li>
-            <li><a href="<?php echo URL; ?>index.php/">Promo</a></li>
-            <li><a href="<?php echo URL; ?>index.php/">Produk</a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-            <li><a href="<?php echo URL; ?>index.php/">Logout</a></li>
-        </ul>
-    </div>
-</nav>
 
 <div class="container">
     <div class="row">
