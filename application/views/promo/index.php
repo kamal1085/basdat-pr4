@@ -33,9 +33,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="category_name" class="control-label">Kategori</label>
-<!--                                 <input class="form-control" placeholder="Nama kategori" name="category_name" type="text"
-                                       required> -->
-                               <select class="form-control" >
+                               <select class="form-control" name="kategori" required>
                                     <option>Kategori 1</option>
                                     <option>Kategori 2</option>
                                     <option>Kategori 3</option>
@@ -45,10 +43,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="subcategory_code" class="control-label">Subkategori</label>
-<!--                                 <input class="form-control" placeholder="Kode subkategori" name="subcategory_code"
-                                       type="text"
-                                       required> -->
-                               <select class="form-control" >
+                               <select class="form-control" name="subkategori" required>
                                     <option>Subkategori 1</option>
                                     <option>Subkategori 2</option>
                                     <option>Subkategori 3</option>
