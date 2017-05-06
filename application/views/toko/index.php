@@ -31,21 +31,19 @@
                             </div>
 							<div class="form-group">
 							  <label for="jasa_kirim" value="tes">Jasa Kirim</label>
-							  <select class="form-control" name="toko[0].jk">
-								<option>1</option>
-								<option>2</option>
-								<option>3</option>
-								<option>4</option>
+							  <select class="selectpicker form-control">
+								<option>  </option>
+								<option>  </option>
+								<option>  </option>
 							  </select>
 							</div>
 							<!-- The template for adding new field -->
 							<div class="form-group hide" id="JKTemplate">
-								<select class="form-control" name="toko_jk">
-								<option>1</option>
-								<option>2</option>
-								<option>3</option>
-								<option>4</option>
-							  </select>
+								<select class="selectpicker form-control">
+									<option>  </option>
+									<option>  </option>
+									<option>  </option>
+								</select>
 							</div>
                             <a class="btn btn-lg btn-success btn-block addButton" type="button">Tambah Jasa Kirim</a>
                         </fieldset>
