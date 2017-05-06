@@ -18,7 +18,7 @@ if (!$this) {
                         href="<?php echo URL; ?>index.php/cart">Keranjang Belanja</a></li>
             <li <?php if (basename($_SERVER['PHP_SELF']) == 'toko') echo 'class="active"' ?>><a
                         href="<?php echo URL; ?>index.php/toko">Buka Toko</a></li>
-            <li <?php if (basename($_SERVER['PHP_SELF']) == 'produk') echo 'class="active"' ?>><a
+            <li <?php if (basename($_SERVER['PHP_SELF']) == 'shipped_produk') echo 'class="active"' ?>><a
                         href="<?php echo URL; ?>index.php/produk/shipped_produk">Tambah Produk</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
