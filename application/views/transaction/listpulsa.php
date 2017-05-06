@@ -39,9 +39,9 @@
                                 <td>12000</td>
                                 <td>10</td>
                                 <td>085742356534</td>
-                                <td> <button type="button" class="btn btn-primary btn-sm">
-                                      ULAS
-                                    </button></td>
+                                <td> <a href="<?php echo URL; ?>index.php/ulasan" class="btn btn-primary btn-sm">
+                                      Ulas
+                                    </a></td>
                             </tr>
                             <tr>
                             <td>
@@ -54,9 +54,9 @@
                                 <td>23000</td>
                                 <td>20</td>
                                 <td>2345612345</td>
-                                <td> <button type="button" class="btn btn-primary btn-sm">
-                                      ULAS
-                                    </button></td>
+                                <td> <a href="<?php echo URL; ?>index.php/ulasan" class="btn btn-primary btn-sm">
+                                      Ulas
+                                    </a></td>
                             </tr>
 
                         </table>
