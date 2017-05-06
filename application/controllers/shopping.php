@@ -20,6 +20,7 @@ class Shopping extends Controller
          require APP . 'views/_templates/customer_navbar.php';
         require APP . 'views/shopping/listpulsa.php';
         require APP . 'views/_templates/footer.php';
+          require APP . 'views/shopping/jspulsa.php';
     }
 
     public function listproduk()

@@ -112,9 +112,9 @@
                                 <td>20000</td>
                                 <td>80000</td>
                                 
-                               <td> <button type="button" class="btn btn-primary btn-lg">
+                               <td> <a href="<?php echo URL; ?>index.php/ulasan" class="btn btn-primary btn-lg">
                                       Ulas
-                                    </button></td>
+                                    </a></td>
                             </tr>
                              <tr>
                             <td>
@@ -126,9 +126,9 @@
                                 <td>15000</td>
                                 <td>15000</td>
                                 
-                               <td> <button type="button" class="btn btn-primary btn-lg">
+                               <td> <a href="<?php echo URL; ?>index.php/ulasan" class="btn btn-primary btn-lg">
                                       Ulas
-                                    </button></td>
+                                    </a></td>
                             </tr>
 
                         </table>
