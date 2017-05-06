@@ -33,19 +33,33 @@
                             </div>
                             <div class="form-group">
                                 <label for="category_name" class="control-label">Kategori</label>
-                                <input class="form-control" placeholder="Nama kategori" name="category_name" type="text"
-                                       required>
+<!--                                 <input class="form-control" placeholder="Nama kategori" name="category_name" type="text"
+                                       required> -->
+                               <select class="form-control" >
+                                    <option>Kategori 1</option>
+                                    <option>Kategori 2</option>
+                                    <option>Kategori 3</option>
+                                    <option>Kategori 4</option>
+                                    <option>Kategori 5</option>
+                                </select>
                             </div>
                             <div class="form-group">
                                 <label for="subcategory_code" class="control-label">Subkategori</label>
-                                <input class="form-control" placeholder="Kode subkategori" name="subcategory_code"
+<!--                                 <input class="form-control" placeholder="Kode subkategori" name="subcategory_code"
                                        type="text"
-                                       required>
+                                       required> -->
+                               <select class="form-control" >
+                                    <option>Subkategori 1</option>
+                                    <option>Subkategori 2</option>
+                                    <option>Subkategori 3</option>
+                                    <option>Subkategori 4</option>
+                                    <option>Subkategori 5</option>
+                                </select>
                             </div>
                         </fieldset>
+                        <hr/>
+                        <input class="btn btn-lg btn-primary btn-block" type="submit" value="Submit">
                     </form>
-                    <hr/>
-                    <input class="btn btn-lg btn-primary btn-block" type="submit" value="Submit">
                 </div>
             </div>
         </div>

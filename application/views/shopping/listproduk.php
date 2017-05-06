@@ -5,7 +5,35 @@
 
 
 <div class="container">
-    <div class="row">
+    <div id="frmSelectToko" class="row">
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Form Pilih Toko</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="col-md-6">
+                        <fieldset>
+                            <div class="form-group">
+                                <label for="email" class="control-label">Nama Toko</label>
+                                <select class="form-control" >
+                                    <option>Toko 1</option>
+                                    <option>Toko 2</option>
+                                    <option>Toko 3</option>
+                                    <option>Toko 4</option>
+                                    <option>Toko 5</option>
+                                </select>
+                            </div>
+                            
+                            <button class="btn btn-lg btn-success btn-block" id="submitShowProduct">Submit</button> 
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="listProduk" class="row" style="display: none;">
         <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
@@ -56,3 +84,14 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+    
+
+    $('#submitShowProduct').on('click', function() {
+             $('#listProduk').show();
+             $('#frmSelectToko').hide();
+        })         
+});
+</script>

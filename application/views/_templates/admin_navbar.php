@@ -16,7 +16,7 @@ if (!$this) {
                         href="<?php echo URL; ?>index.php/jasa_kirim">Jasa Kirim</a></li>
             <li <?php if (basename($_SERVER['PHP_SELF']) == 'promo') echo 'class="active"' ?>><a
                         href="<?php echo URL; ?>index.php/promo">Promo</a></li>
-            <li <?php if (basename($_SERVER['PHP_SELF']) == 'produk') echo 'class="active"' ?>><a
+            <li <?php if (basename($_SERVER['PHP_SELF']) == 'produk_pulsa') echo 'class="active"' ?>><a
                         href="<?php echo URL; ?>index.php/produk/produk_pulsa">Tambah Produk</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">

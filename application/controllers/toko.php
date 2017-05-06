@@ -12,6 +12,7 @@ class Toko extends Controller
         require APP . 'views/_templates/customer_navbar.php';
         require APP . 'views/toko/index.php';
         require APP . 'views/_templates/footer.php';
+        require APP . 'views/toko/js.php';
     }
 
     //TODO

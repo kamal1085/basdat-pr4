@@ -33,9 +33,9 @@
                                 <input class="form-control" placeholder="Nominal" name="nominal_produk" type="text" required>
                             </div>
                         </fieldset>
+                        <hr/>
+                        <input class="btn btn-lg btn-primary btn-block" type="submit" value="Submit">
                     </form>
-                    <hr/>
-                    <input class="btn btn-lg btn-primary btn-block" type="submit" value="Submit">
                 </div>
             </div>
         </div>
