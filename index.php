@@ -1,5 +1,15 @@
 <?php
 
+/**
+This main class to load all application , controller, model and view init
+
+Created by Kelompok basdat - 11
+Muhammad Kamal
+Zetra
+Handi Nastity
+Ramadhan Ibnu Akbar
+**/
+
 // set a constant that holds the project's folder path, like "/var/www/".
 // DIRECTORY_SEPARATOR adds a slash to the end of the path
 define('ROOT', __DIR__ . DIRECTORY_SEPARATOR);
@@ -9,11 +19,10 @@ define('APP', ROOT . 'application' . DIRECTORY_SEPARATOR);
 // load application config (error reporting etc.)
 require APP . '/config/config.php';
 
-// FOR DEVELOPMENT: this loads PDO-debug, a simple function that shows the SQL query (when using PDO).
-// If you want to load pdoDebug via Composer, then have a look here: https://github.com/panique/pdo-debug
+// activate this section to use PDO-Debug
 require APP . '/libs/pdo-debug.php';
 
-// load application class
+// load application class - 
 require APP . '/core/application.php';
 require APP . '/core/controller.php';
 

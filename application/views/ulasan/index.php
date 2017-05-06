@@ -44,9 +44,9 @@
                                <textarea class="form-control" placeholder="Enter comment here..." name="komentar" required></textarea>
                             </div>
                         </fieldset>
+                        <hr/>
+                        <input class="btn btn-lg btn-primary btn-block" type="submit" value="Submit">
                     </form>
-                    <hr/>
-                    <input class="btn btn-lg btn-primary btn-block" type="submit" value="Submit">
                 </div>
             </div>
         </div>

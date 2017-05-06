@@ -15,7 +15,7 @@ if (!$this) {
             <li <?php if (basename($_SERVER['PHP_SELF']) == 'transaction') echo 'class="active"' ?>><a
                         href="<?php echo URL; ?>index.php/transaction">Transaksi</a></li>
             <li <?php if (basename($_SERVER['PHP_SELF']) == 'cart') echo 'class="active"' ?>><a
-                        href="<?php echo URL; ?>index.php/cart">Keranjang Belanja</a></li>
+                        href="<?php echo URL; ?>index.php/shopping/cart">Keranjang Belanja</a></li>
             <li <?php if (basename($_SERVER['PHP_SELF']) == 'toko') echo 'class="active"' ?>><a
                         href="<?php echo URL; ?>index.php/toko">Buka Toko</a></li>
             <li <?php if (basename($_SERVER['PHP_SELF']) == 'shipped_produk') echo 'class="active"' ?>><a
