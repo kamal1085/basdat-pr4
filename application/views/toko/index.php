@@ -3,7 +3,6 @@
 } ?>
 
 
-
 <div class="container">
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
@@ -50,9 +49,9 @@
 							</div>
                             <a class="btn btn-lg btn-success btn-block addButton" type="button">Tambah Jasa Kirim</a>
                         </fieldset>
+                        <hr/>
+                        <input class="btn btn-lg btn-primary btn-block" type="submit" value="Submit">
                     </form>
-                    <hr/>
-                    <input class="btn btn-lg btn-primary btn-block" type="submit" value="Submit">
                 </div>
             </div>
         </div>

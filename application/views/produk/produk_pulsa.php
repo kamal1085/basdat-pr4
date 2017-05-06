@@ -2,20 +2,6 @@
     exit(header('HTTP/1.0 403 Forbidden'));
 } ?>
 
-<nav class="navbar navbar-default">
-    <div class="container">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="<?php echo URL; ?>index.php/">Tokokeren</a>
-        </div>
-        <ul class="nav navbar-nav">
-            <li class="active"><a href="<?php echo URL; ?>index.php/toko">Produk Pulsa</a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-            <li><a href="<?php echo URL; ?>index.php/">Logout</a></li>
-        </ul>
-    </div>
-</nav>
-
 <div class="container">
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
@@ -47,9 +33,9 @@
                                 <input class="form-control" placeholder="Nominal" name="nominal_produk" type="text" required>
                             </div>
                         </fieldset>
+                        <hr/>
+                        <input class="btn btn-lg btn-primary btn-block" type="submit" value="Submit">
                     </form>
-                    <hr/>
-                    <input class="btn btn-lg btn-primary btn-block" type="submit" value="Submit">
                 </div>
             </div>
         </div>
