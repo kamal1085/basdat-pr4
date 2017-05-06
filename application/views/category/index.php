@@ -25,28 +25,28 @@
                             </div>
                             <div>
                                 <div class="form-group">
-                                    <label class="control-label">Sub kategori 1:</label>
+                                    <label class="control-label">Subkategori 1:</label>
                                     <br/>
                                     <label for="subcategory_code" class="control-label">Kode subkategori</label>
                                     <input class="form-control" placeholder="Kode subkategori" name="subcategory_code[0]"
                                            type="text" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="subcategory_name" class="control-label">Nama kategori</label>
+                                    <label for="subcategory_name" class="control-label">Nama subkategori</label>
                                     <input class="form-control" placeholder="Nama subkategori" name="subcategory_name[0]"
                                            type="text" required>
                                 </div>
                             </div>
                             <div class="hide" id="subcategory_template">
                                 <div class="form-group">
-                                    <label class="control-label" id="label">Sub kategori 1:</label>
+                                    <label class="control-label" id="label">Subkategori 1:</label>
                                     <br/>
                                     <label for="subcategory_code" class="control-label">Kode subkategori</label>
                                     <input class="form-control" placeholder="Kode subkategori" name="subcategory_code"
                                            type="text" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="subcategory_name" class="control-label">Nama kategori</label>
+                                    <label for="subcategory_name" class="control-label">Nama subkategori</label>
                                     <input class="form-control" placeholder="Nama subkategori" name="subcategory_name"
                                            type="text" required>
                                 </div>
