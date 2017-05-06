@@ -24,7 +24,7 @@ if (!$this) {
         </div>
         <ul class="nav navbar-nav">
         	<li class="active"><a href="<?php echo URL; ?>index.php/category">Kategori</a></li>
-            <li><a href="<?php echo URL; ?>index.php/jasa_kirim">Jasa Kirim</a></li>
+            <li class="active"><a href="<?php echo URL; ?>index.php/jasa_kirim">Jasa Kirim</a></li>
             <li><a href="<?php echo URL; ?>index.php/promo">Promo</a></li>
             <li><a href="<?php echo URL; ?>index.php/">Produk</a></li>
             <li><a href="<?php echo URL; ?>index.php/toko">Membuat Toko</a></li>
