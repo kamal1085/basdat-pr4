@@ -3,7 +3,7 @@
 /**
 This main class to load all application , controller, model and view init
 
-Created by Kelompok basdat - 11
+Prepared by Kelompok basdat - 11
 Muhammad Kamal
 Zetra
 Handi Nastity
@@ -18,9 +18,7 @@ define('APP', ROOT . 'application' . DIRECTORY_SEPARATOR);
 
 // load application config (error reporting etc.)
 require APP . '/config/config.php';
-
-// activate this section to use PDO-Debug
-require APP . '/libs/pdo-debug.php';
+ 
 
 // load application class - 
 require APP . '/core/application.php';

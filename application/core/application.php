@@ -1,5 +1,9 @@
 <?php
 
+/** 
+Prepare by kelompok 11 Basdat
+ main application
+**/
 class Application
 {
     /** @var null The controller */
@@ -19,8 +23,7 @@ class Application
     {
         // create array with URL parts in $url
         $this->getUrlWithoutModRewrite();
-
-        // check for controller: no controller given ? then load start-page
+ 
         if (!$this->url_controller) {
 
             require APP . 'controllers/home.php';
@@ -89,9 +92,7 @@ class Application
             $url = array_values($url);
         }
 
-        // Put URL parts into according properties
-        // By the way, the syntax here is just a short form of if/else, called "Ternary Operators"
-        // @see http://davidwalsh.name/php-shorthand-if-else-ternary-operators
+     
         $this->url_controller = isset($url[0]) ? $url[0] : null;
         $this->url_action = isset($url[1]) ? $url[1] : null;
 
