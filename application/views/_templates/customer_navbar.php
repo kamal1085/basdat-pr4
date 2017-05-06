@@ -19,7 +19,7 @@ if (!$this) {
             <li <?php if (basename($_SERVER['PHP_SELF']) == 'toko') echo 'class="active"' ?>><a
                         href="<?php echo URL; ?>index.php/toko">Buka Toko</a></li>
             <li <?php if (basename($_SERVER['PHP_SELF']) == 'produk') echo 'class="active"' ?>><a
-                        href="<?php echo URL; ?>index.php/produk">Tambah Produk</a></li>
+                        href="<?php echo URL; ?>index.php/produk/shipped_produk">Tambah Produk</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li><a href="<?php echo URL; ?>index.php/login">Logout</a></li>
