@@ -42,13 +42,19 @@
                 <div class="panel-body">
                     <div class="col-md-12">
                         <div class="row">
-                            <div class="col-md-6">
-                                Kategori : <select><option>Test</option></select>
+                            <div class="col-md-2">
+                                Kategori : 
+                            </div>
+                            <div class="col-md-4">
+                                <select class="form-control" ><option>Kategori-1</option></select>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-6">
-                               Sub Kategori : <select><option>Test</option></select>
+                            <div class="col-md-2">
+                               Sub Kategori :  
+                            </div>
+                             <div class="col-md-4">
+                                <select class="form-control" ><option>Sub Kategori-1</option></select>
                             </div>
                         </div>
                         <table class="table table-striped">
@@ -80,7 +86,7 @@
                                 <td>TRUE</td>
                                 <td>60000</td>
                                 <td>
-                                    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modalAddCart">
+                                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalAddCart">
                                       Beli
                                     </button>
                                 </td>
@@ -98,7 +104,7 @@
                                 <td>TRUE</td>
                                 <td>70000</td>
                                 <td>
-                                  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modalAddCart">
+                                  <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalAddCart">
                                       Beli
                                     </button> </td>
                             </tr>

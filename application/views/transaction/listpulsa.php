@@ -39,7 +39,7 @@
                                 <td>12000</td>
                                 <td>10</td>
                                 <td>085742356534</td>
-                                <td> <button type="button" class="btn btn-primary btn-lg">
+                                <td> <button type="button" class="btn btn-primary btn-sm">
                                       ULAS
                                     </button></td>
                             </tr>
@@ -54,7 +54,7 @@
                                 <td>23000</td>
                                 <td>20</td>
                                 <td>2345612345</td>
-                                <td> <button type="button" class="btn btn-primary btn-lg">
+                                <td> <button type="button" class="btn btn-primary btn-sm">
                                       ULAS
                                     </button></td>
                             </tr>

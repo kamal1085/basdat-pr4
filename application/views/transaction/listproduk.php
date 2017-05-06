@@ -46,7 +46,7 @@
                                 <td>25000</td>
                                 <td>DPK9816788882627</td>
                                 <td>JNE OKE</td>
-                               <td> <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modalShowDetail">
+                               <td> <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalShowDetail">
                                       Daftar Produk
                                     </button></td>
                             </tr>
@@ -63,7 +63,7 @@
                                 <td>10000</td>
                                 <td>KOSONG</td>
                                 <td>JNE OKE</td>
-                               <td> <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modalShowDetail">
+                               <td> <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalShowDetail">
                                       Daftar Produk
                                     </button></td>
                             </tr>
@@ -112,7 +112,7 @@
                                 <td>20000</td>
                                 <td>80000</td>
                                 
-                               <td> <a href="<?php echo URL; ?>index.php/ulasan" class="btn btn-primary btn-lg">
+                               <td> <a href="<?php echo URL; ?>index.php/ulasan" class="btn btn-primary btn-sm">
                                       Ulas
                                     </a></td>
                             </tr>
@@ -126,7 +126,7 @@
                                 <td>15000</td>
                                 <td>15000</td>
                                 
-                               <td> <a href="<?php echo URL; ?>index.php/ulasan" class="btn btn-primary btn-lg">
+                               <td> <a href="<?php echo URL; ?>index.php/ulasan" class="btn btn-primary btn-sm">
                                       Ulas
                                     </a></td>
                             </tr>
