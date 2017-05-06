@@ -30,7 +30,7 @@
                                 <input class="form-control" placeholder="Lokasi" name="lokasi_toko" type="text" required>
                             </div>
 							<div class="form-group">
-							  <label for="jasa_kirim" value="tes">Jasa Kirim</label>
+							  <label for="jasa_kirim" class="control-label">Jasa Kirim 1</label>
 							  <select class="selectpicker form-control">
 								<option>  </option>
 								<option>  </option>
@@ -39,6 +39,7 @@
 							</div>
 							<!-- The template for adding new field -->
 							<div class="form-group hide" id="JKTemplate">
+								<label for="jasa_kirim" class="control-label" id="label">Jasa Kirim 1</label>
 								<select class="selectpicker form-control">
 									<option>  </option>
 									<option>  </option>
