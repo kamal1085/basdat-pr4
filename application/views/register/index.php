@@ -64,7 +64,7 @@
                     </form>
                     <hr/>
                     <div style="text-align: center;"><h5>ATAU</h5></div>
-                    <a class="btn btn-lg btn-primary btn-block" href="<?php echo URL; ?>index.php"
+                    <a class="btn btn-lg btn-primary btn-block" href="<?php echo URL; ?>index.php/login"
                        role="button">Login</a>
                 </div>
             </div>

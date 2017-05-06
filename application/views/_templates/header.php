@@ -16,6 +16,7 @@ if (!$this) {
 </head>
 <body>
 
+<<<<<<< HEAD
 <nav class="navbar navbar-default">
     <div class="container">
         <div class="navbar-header">
@@ -34,4 +35,6 @@ if (!$this) {
         </ul>
     </div>
 </nav>
+=======
+>>>>>>> 7e4de4acfab284b81591eecb37639917e6a663ae
 
