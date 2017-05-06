@@ -12,7 +12,16 @@
                     <h3 class="panel-title">Daftar Produk</h3>
                 </div>
                 <div class="panel-body">
-                     
+                    <div class="col-md-3">
+                    <a class="btn btn-lg btn-primary btn-block" href="<?php echo URL; ?>index.php/shopping/listpulsa"
+                       role="button">Beli Pulsa</a>
+                       
+                    </div>
+                    <div class="col-md-3">
+                    
+                       <a class="btn btn-lg btn-primary btn-block" href="<?php echo URL; ?>index.php/shopping/listproduk"
+                       role="button">Beli Barang</a>
+                    </div>
                 </div>
             </div>
         </div>

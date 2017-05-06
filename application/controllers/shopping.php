@@ -13,5 +13,25 @@ class Shopping extends Controller
         require APP . 'views/_templates/footer.php';
     }
 
+    public function listpulsa()
+    {
+        require APP . 'views/_templates/header.php';
+        require APP . 'views/shopping/listpulsa.php';
+        require APP . 'views/_templates/footer.php';
+    }
+
+    public function listproduk()
+    {
+        require APP . 'views/_templates/header.php';
+        require APP . 'views/shopping/listproduk.php';
+        require APP . 'views/_templates/footer.php';
+    }
+
+     public function shoppulsa()
+    {
+        require APP . 'views/_templates/header.php';
+        require APP . 'views/shopping/shoppulsa.php';
+        require APP . 'views/_templates/footer.php';
+    }
     
 }
