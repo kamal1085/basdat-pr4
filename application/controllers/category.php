@@ -12,6 +12,7 @@ class Category extends Controller
         require APP . 'views/_templates/admin_navbar.php';
         require APP . 'views/category/index.php';
         require APP . 'views/_templates/footer.php';
+        require APP . 'views/category/js.php';
     }
 
     //TODO
