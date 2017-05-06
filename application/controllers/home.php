@@ -13,4 +13,12 @@ class Home extends Controller
         require APP . 'views/home/index.php';
         require APP . 'views/_templates/footer.php';
     }
+
+    public function login()
+    {
+        // load views
+        require APP . 'views/_templates/headerlogin.php';
+        require APP . 'views/home/login.php';
+        require APP . 'views/_templates/footer.php';
+    }
 }
