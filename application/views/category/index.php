@@ -54,9 +54,9 @@
                             <a class="btn btn-lg btn-success btn-block add-subcategory"
                                role="button">Tambah Subkategori</a>
                         </fieldset>
+                        <hr/>
+                        <input class="btn btn-lg btn-primary btn-block" type="submit" value="Submit">
                     </form>
-                    <hr/>
-                    <input class="btn btn-lg btn-primary btn-block" type="submit" value="Submit">
                 </div>
             </div>
         </div>
