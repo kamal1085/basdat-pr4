@@ -16,7 +16,7 @@ class Transaction extends Controller
 
         //echo $transpulsa;
         require APP . 'views/_templates/header.php';
-         require APP . 'views/_templates/customer_navbar.php';
+        require APP . 'views/_templates/customer_navbar.php';
         require APP . 'views/transaction/listpulsa.php';
         require APP . 'views/_templates/footer.php';
     }
@@ -24,7 +24,7 @@ class Transaction extends Controller
     public function listproduk()
     {
         require APP . 'views/_templates/header.php';
-         require APP . 'views/_templates/customer_navbar.php';
+        require APP . 'views/_templates/customer_navbar.php';
         require APP . 'views/transaction/listproduk.php';
         require APP . 'views/_templates/footer.php';
         require APP . 'views/shopping/js.php';

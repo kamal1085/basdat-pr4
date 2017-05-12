@@ -32,20 +32,20 @@
 							<div class="form-group">
 							  <label for="jasa_kirim" class="control-label">Jasa Kirim 1</label>
 							  <select class="selectpicker form-control" id="select1" name="name[]"> 
-								<option value="" selected="selected">a </option> 
-								<option value="1"> b</option> 
-								<option value="2"> c</option> 
-								<option value="3"> d</option> 
+								<option value="" selected="selected" disabled>-- Pilih Jasa Kirim --</option> 
+								<?php foreach ($jasakirim as $jkirim) { ?>
+								<?php if (isset($jkirim->nama)) echo "<option value='",$jkirim->nama,"'>",$jkirim->nama,"</option>"; ?>  
+								<?php } ?>
 							  </select>
 							</div>
 							<!-- The template for adding new field -->
 							<div class="form-group hide" id="JKTemplate">
 								<label for="jasa_kirim" class="control-label" id="label">Jasa Kirim 1</label>
 								<select class="selectpicker form-control" id="select2" name="name[]"> 
-								  <option value="" selected="selected">a </option> 
-								  <option value="1"> b</option> 
-								  <option value="2"> c</option> 
-								  <option value="3"> d</option> 
+								  <option value="" selected="selected" disabled>-- Pilih Jasa Kirim --</option> 
+								  <?php foreach ($jasakirim as $jkirim) { ?>
+								  <?php if (isset($jkirim->nama)) echo "<option value='",$jkirim->nama,"'>",$jkirim->nama,"</option>"; ?>  
+								  <?php } ?>
 								</select>
 							</div>
                             <a class="btn btn-lg btn-success btn-block addButton" type="button">Tambah Jasa Kirim</a>
