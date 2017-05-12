@@ -49,4 +49,6 @@ class Controller
         // create new "model" (and pass the database connection)
         $this->model = new Model($this->db);
     }
+
+     
 }

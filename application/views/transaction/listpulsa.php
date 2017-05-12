@@ -28,37 +28,22 @@
                             <th>Nomor</th>
                             <th>ULASAN</th>
                             </tr>
-                            <tr>
-                            <td>
-                                V000000001
-                                </td>
-                                <td>Pulsa IM3
-                                </td>
-                                <td>4/1/2016</td>
-                                <td>SUDAH DIBAYAR</td>
-                                <td>12000</td>
-                                <td>10</td>
-                                <td>085742356534</td>
-                                <td> <a href="<?php echo URL; ?>index.php/ulasan" class="btn btn-primary btn-sm">
+                            <?php foreach ($transpulsa as $tpulsa) { ?>
+    <tr>
+        <td><?php if (isset($tpulsa->no_invoice)) echo htmlspecialchars($tpulsa->no_invoice, ENT_QUOTES, 'UTF-8'); ?></td>
+        <td><?php if (isset($tpulsa->kode_produk)) echo htmlspecialchars($tpulsa->kode_produk, ENT_QUOTES, 'UTF-8'); ?></td>
+        <td><?php if (isset($tpulsa->tanggal)) echo htmlspecialchars($tpulsa->tanggal, ENT_QUOTES, 'UTF-8'); ?></td>
+        <td><?php if (isset($tpulsa->status)) echo htmlspecialchars($tpulsa->status, ENT_QUOTES, 'UTF-8'); ?></td>
+        <td><?php if (isset($tpulsa->total_bayar)) echo htmlspecialchars($tpulsa->total_bayar, ENT_QUOTES, 'UTF-8'); ?></td>
+        <td><?php if (isset($tpulsa->nominal)) echo htmlspecialchars($tpulsa->nominal, ENT_QUOTES, 'UTF-8'); ?></td>
+        <td><?php if (isset($tpulsa->nomor)) echo htmlspecialchars($tpulsa->nomor, ENT_QUOTES, 'UTF-8'); ?></td>
+        <td><a href="<?php echo URL; ?>index.php/ulasan" class="btn btn-primary btn-sm">
                                       Ulas
                                     </a></td>
-                            </tr>
-                            <tr>
-                            <td>
-                                V000000002
-                                </td>
-                                <td>Listrik PLN
-                                </td>
-                                <td>4/1/2016</td>
-                                <td>BELUM DIBAYAR</td>
-                                <td>23000</td>
-                                <td>20</td>
-                                <td>2345612345</td>
-                                <td> <a href="<?php echo URL; ?>index.php/ulasan" class="btn btn-primary btn-sm">
-                                      Ulas
-                                    </a></td>
-                            </tr>
-
+    </tr>
+<?php } ?>
+                            
+                            
                         </table>
                     </div>
                 </div>
