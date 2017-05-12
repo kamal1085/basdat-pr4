@@ -23,7 +23,7 @@
 	
 	(function ($) { 
  
-		var form = $('#tokoForm').parent(); 
+		var form = $('#tokoForm'); 
 	 
 		form.submit(function (event) { 
 	 
@@ -53,7 +53,7 @@
 			return; 
 		  } 
 	 
-		  form.submit(); 
+		  document.getElementById("tokoForm").submit(); 
 		}); 
 	 
 	  }) (jQuery);

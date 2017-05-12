@@ -10,7 +10,7 @@
                     <h3 class="panel-title">Form Membuat Produk Pulsa</h3>
                 </div>
                 <div class="panel-body">
-                    <form accept-charset="UTF-8" role="form" id="tokoForm">
+                    <form accept-charset="UTF-8" role="form" id="tokoForm" action="../produk/addProdukPulsa" method="post">
                         <fieldset>
                             <div class="form-group">
                                 <label for="kode_produk" class="control-label">Kode Produk</label>

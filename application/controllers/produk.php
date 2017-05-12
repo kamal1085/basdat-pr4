@@ -27,4 +27,10 @@ class Produk extends Controller
         require APP . 'views/produk/shipped_produk.php';
         require APP . 'views/_templates/footer.php';
     }
+	
+	public function addProdukPulsa()
+    {
+		$text1  = $_POST['kode_produk'];
+		echo $text1;
+    }
 }

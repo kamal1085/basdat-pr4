@@ -11,7 +11,7 @@
                     <h3 class="panel-title">Form Membuat Toko</h3>
                 </div>
                 <div class="panel-body">
-                    <form accept-charset="UTF-8" role="form" id="tokoForm">
+                    <form accept-charset="UTF-8" role="form" id="tokoForm" action="/controller/addToko" method="post">
                         <fieldset>
                             <div class="form-group">
                                 <label for="nama_toko" class="control-label">Nama</label>

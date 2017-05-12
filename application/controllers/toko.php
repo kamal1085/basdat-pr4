@@ -16,6 +16,8 @@ class Toko extends Controller
     //TODO
     public function addToko()
     {
+		$text1  = $_POST['nama_toko'];
+		echo $text1;
 		require APP . 'views/_templates/header.php';
         require APP . 'views/_templates/customer_navbar.php';
         require APP . 'views/toko/index.php';
