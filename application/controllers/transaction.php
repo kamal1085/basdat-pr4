@@ -12,6 +12,9 @@ class Transaction extends Controller
 
     public function listpulsa()
     {
+        $transpulsa = $this->model->getAllTransaksiPulsa();
+
+        //echo $transpulsa;
         require APP . 'views/_templates/header.php';
          require APP . 'views/_templates/customer_navbar.php';
         require APP . 'views/transaction/listpulsa.php';
