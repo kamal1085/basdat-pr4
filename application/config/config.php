@@ -27,7 +27,7 @@ if (defined('URL_SUB_FOLDER')) {
  * This is the place where you define your database credentials, database type etc.
  */
 define('DB_TYPE', 'pgsql');
-define('DB_HOST', '127.0.0.1');
-define('DB_NAME', 'tokokeren');
-define('DB_USER', 'root');
-define('DB_PASS', '');
+define('DB_HOST', 'pgdevelopment.c5vulavebd4f.ap-southeast-1.rds.amazonaws.com');
+define('DB_NAME', 'TOKOKEREN');
+define('DB_USER', 'muhammad_kamal');
+define('DB_PASS', '!23Qweasd');

@@ -22,7 +22,7 @@ class Controller
     function __construct()
     {
         //TODO enable this
-        //$this->openDatabaseConnection();
+        $this->openDatabaseConnection();
         $this->loadModel();
     }
 
