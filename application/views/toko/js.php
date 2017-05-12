@@ -17,7 +17,44 @@
 
             // Update the name attributes
 			$clone.find('[id="label"]').text('Jasa Kirim ' + (count + 1)).end();
-            $clone.find('[name="toko_jk"]').attr('name', 'toko[' + count + '].jk').end();
+            $clone.find('[name="name[]"]').attr('id', 'select' + count).end();
         })
     });
+	
+	(function ($) { 
+ 
+		var form = $('#tokoForm').parent(); 
+	 
+		form.submit(function (event) { 
+	 
+		  event.preventDefault(); 
+	 
+		  var selected = {}, 
+			errors = []; 
+	 
+		  form.find('option:selected').each(function (index, elem) { 
+	 
+			var val = $(elem).val().trim(); 
+	 
+			if (! selected[val]) { 
+			  selected[val] = 1; 
+			  return; 
+	 
+			} else if (selected[val] == 1) { 
+	 
+			  errors.push('Jasa kirim harus diisi dan unik'); 
+			} 
+	 
+			selected[val] += 1; 
+		  }); 
+	 
+		  if (errors.length) { 
+			alert(errors.join("\n")); 
+			return; 
+		  } 
+	 
+		  form.submit(); 
+		}); 
+	 
+	  }) (jQuery);
 </script>
