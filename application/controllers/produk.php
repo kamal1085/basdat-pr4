@@ -2,10 +2,6 @@
 
 class Produk extends Controller
 {
-    /**
-     * PAGE: index
-     * This method handles what happens when you move to http://yourproject/category/index
-     */
 	 
 	public function index()
     {
