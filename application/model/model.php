@@ -16,8 +16,10 @@ class Model
 
     public function login($email, $password)
     {
-        $sql = "SELECT * FROM TOKOKEREN.pengguna WHERE email = '$email' and password = '$password'";
+        $sql = "SELECT * FROM TOKOKEREN.pengguna WHERE email = :email AND password = :password";
         $query = $this->db->prepare($sql);
+        $query->bindParam(':email', $email, PDO::PARAM_STR);
+        $query->bindParam(':password', $password, PDO::PARAM_STR);
         $query->execute();
 
         return $query->fetchAll();
@@ -25,8 +27,9 @@ class Model
 
     public function getPengguna($email)
     {
-        $sql = "SELECT * FROM TOKOKEREN.pengguna WHERE email = '$email'";
+        $sql = "SELECT * FROM TOKOKEREN.pengguna WHERE email = :email";
         $query = $this->db->prepare($sql);
+        $query->bindParam(':email', $email, PDO::PARAM_STR);
         $query->execute();
 
         return $query->fetchAll();
@@ -34,8 +37,9 @@ class Model
 
     public function getPelanggan($email)
     {
-        $sql = "SELECT * FROM TOKOKEREN.pelanggan WHERE email = '$email'";
+        $sql = "SELECT * FROM TOKOKEREN.pelanggan WHERE email = :email";
         $query = $this->db->prepare($sql);
+        $query->bindParam(':email', $email, PDO::PARAM_STR);
         $query->execute();
 
         return $query->fetchAll();
@@ -70,7 +74,7 @@ class Model
         $sql = "SELECT * FROM TOKOKEREN.transaksi_pulsa;";
         $query = $this->db->prepare($sql);
         $query->execute();
-        
+
         return $query->fetchAll();
     }
 
@@ -79,7 +83,7 @@ class Model
         $sql = "SELECT * FROM TOKOKEREN.jasa_kirim;";
         $query = $this->db->prepare($sql);
         $query->execute();
- 
+
         return $query->fetchAll();
     }
 
@@ -102,31 +106,31 @@ class Model
         $query->bindParam(':nominal', $nominal_produk, PDO::PARAM_INT);
         $query->execute();
     }
-	
-	public function addToko($nama, $deskripsi, $slogan, $lokasi, $email_penjual)
+
+    public function addToko($nama, $deskripsi, $slogan, $lokasi, $email_penjual)
     {
-		$sql = "INSERT INTO TOKOKEREN.toko (nama, deskripsi, slogan, lokasi, email_penjual) VALUES (:nama, :deskripsi, :slogan, :lokasi, :email_penjual);";
-		$query = $this->db->prepare($sql);
-		$query -> bindParam(':nama', $nama, PDO::PARAM_STR);
-		$query -> bindParam(':deskripsi', $deskripsi, PDO::PARAM_STR);
-		$query -> bindParam(':slogan', $slogan, PDO::PARAM_STR);
-		$query -> bindParam(':lokasi', $lokasi, PDO::PARAM_STR);
-		$query -> bindParam(':email_penjual', $email_penjual, PDO::PARAM_STR);
-		$query -> execute();
-    }
-	
-	public function addTokoJasaKirim($nama_toko, $jasa_kirim)
-    {
-		$sql = "INSERT INTO TOKOKEREN.toko_jasa_kirim (nama_toko, jasa_kirim) VALUES (:nama_toko, :jasa_kirim);";
-		$query = $this->db->prepare($sql);
-		$query -> bindParam(':nama_toko', $nama_toko, PDO::PARAM_STR);
-		$query -> bindParam(':jasa_kirim', $jasa_kirim, PDO::PARAM_STR);
-		$query -> execute();
+        $sql = "INSERT INTO TOKOKEREN.toko (nama, deskripsi, slogan, lokasi, email_penjual) VALUES (:nama, :deskripsi, :slogan, :lokasi, :email_penjual);";
+        $query = $this->db->prepare($sql);
+        $query->bindParam(':nama', $nama, PDO::PARAM_STR);
+        $query->bindParam(':deskripsi', $deskripsi, PDO::PARAM_STR);
+        $query->bindParam(':slogan', $slogan, PDO::PARAM_STR);
+        $query->bindParam(':lokasi', $lokasi, PDO::PARAM_STR);
+        $query->bindParam(':email_penjual', $email_penjual, PDO::PARAM_STR);
+        $query->execute();
     }
 
-     public function getProdukPulsa()
+    public function addTokoJasaKirim($nama_toko, $jasa_kirim)
     {
-        $sql = "select p.kode_produk, p.nama, p.harga, p.deskripsi, pp.nominal from TOKOKEREN.produk p, TOKOKEREN.produk_pulsa pp where p.kode_produk = pp.kode_produk";
+        $sql = "INSERT INTO TOKOKEREN.toko_jasa_kirim (nama_toko, jasa_kirim) VALUES (:nama_toko, :jasa_kirim);";
+        $query = $this->db->prepare($sql);
+        $query->bindParam(':nama_toko', $nama_toko, PDO::PARAM_STR);
+        $query->bindParam(':jasa_kirim', $jasa_kirim, PDO::PARAM_STR);
+        $query->execute();
+    }
+
+    public function getProdukPulsa()
+    {
+        $sql = "SELECT p.kode_produk, p.nama, p.harga, p.deskripsi, pp.nominal FROM TOKOKEREN.produk p, TOKOKEREN.produk_pulsa pp WHERE p.kode_produk = pp.kode_produk";
         $query = $this->db->prepare($sql);
         $query->execute();
 
