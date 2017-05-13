@@ -29,7 +29,6 @@ if (!$this) {
                     <li><a href="<?php echo URL; ?>index.php/home/logout">Logout</a>
                 </ul>
             </li>
-            </li>
         </ul>
     </div>
 </nav>

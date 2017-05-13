@@ -22,11 +22,10 @@ if (!$this) {
         <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                   aria-expanded="false">Admin <span class="caret"></span></a>
+                   aria-expanded="false"><?php echo $_SESSION['user']->nama; ?> <span class="caret"></span></a>
                 <ul class="dropdown-menu">
                     <li><a href="<?php echo URL; ?>index.php/home/logout">Logout</a>
                 </ul>
-            </li>
             </li>
         </ul>
     </div>
