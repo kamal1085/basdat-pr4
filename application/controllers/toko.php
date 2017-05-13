@@ -16,9 +16,11 @@ class Toko extends Controller
     //TODO
     public function addToko()
     {
-		$toko = $this->model->addToko($_POST['nama_toko'], $_POST['deskripsi_toko'], $_POST['slogan_toko'], $_POST['slogan_toko'], $_POST['lokasi_toko'], $_SESSION['user']->email);
-		//$arrlength = count($text1);
-		echo $text1."-".$_SESSION['user']->email;
-		
+		$toko = $this->model->addToko($_POST['nama_toko'], $_POST['deskripsi_toko'], $_POST['slogan_toko'], $_POST['lokasi_toko'], $_SESSION['user']->email);
+		$jk = $_POST['name'];
+		$arrlength = count($jk);
+		for ($x = 0; $x < $arrlength; $x++) {
+			$this->model->addTokoJasaKirim($_POST['nama_toko'], $jk[$x]);
+		}
     }
 }
