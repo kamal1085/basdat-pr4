@@ -72,13 +72,43 @@ class Model
         $query->execute();
     }
 
-    public function getAllCategories()
+    public function getKategori($kode)
     {
-        $sql = "SELECT * FROM kategori";
+        $sql = "SELECT * FROM TOKOKEREN.kategori_utama WHERE  kode = :kode";
         $query = $this->db->prepare($sql);
+        $query->bindParam(':kode', $kode, PDO::PARAM_STR);
         $query->execute();
 
         return $query->fetchAll();
+    }
+
+    public function getSubKategori($kode)
+    {
+        $sql = "SELECT * FROM TOKOKEREN.sub_kategori WHERE kode = :kode";
+        $query = $this->db->prepare($sql);
+        $query->bindParam(':kode', $kode, PDO::PARAM_STR);
+        $query->execute();
+
+        return $query->fetchAll();
+    }
+
+    public function addKategori($kode, $nama)
+    {
+        $sql = "INSERT INTO TOKOKEREN.kategori_utama (kode, nama) VALUES (:kode, :nama);";
+        $query = $this->db->prepare($sql);
+        $query->bindParam(':kode', $kode, PDO::PARAM_STR);
+        $query->bindParam(':nama', $nama, PDO::PARAM_STR);
+        $query->execute();
+    }
+
+    public function addSubKategori($kode_kategori, $kode, $nama)
+    {
+        $sql = "INSERT INTO TOKOKEREN.sub_kategori (kode_kategori, kode, nama) VALUES (:kode_kategori, :kode, :nama);";
+        $query = $this->db->prepare($sql);
+        $query->bindParam(':kode_kategori', $kode_kategori, PDO::PARAM_STR);
+        $query->bindParam(':kode', $kode, PDO::PARAM_STR);
+        $query->bindParam(':nama', $nama, PDO::PARAM_STR);
+        $query->execute();
     }
 
     public function getAllTransaksiPulsa()
@@ -139,8 +169,8 @@ class Model
         $query->bindParam(':jasa_kirim', $jasa_kirim, PDO::PARAM_STR);
         $query->execute();
     }
-	
-	public function updateStatusPelanggan($email)
+
+    public function updateStatusPelanggan($email)
     {
         $sql = "UPDATE TOKOKEREN.pelanggan SET is_penjual = TRUE WHERE email = :email;";
         $query = $this->db->prepare($sql);

@@ -11,7 +11,9 @@
                     <h3 class="panel-title">Tambah Kategori</h3>
                 </div>
                 <div class="panel-body">
-                    <form accept-charset="UTF-8" role="form" id="category_form">
+                    <form accept-charset="UTF-8" role="form" id="category_form"
+                          action="<?php echo URL; ?>index.php/category/submit"
+                          method="post">
                         <fieldset>
                             <div class="form-group">
                                 <label for="category_code" class="control-label">Kode kategori</label>
@@ -28,12 +30,14 @@
                                     <label class="control-label">Subkategori 1:</label>
                                     <br/>
                                     <label for="subcategory_code" class="control-label">Kode subkategori</label>
-                                    <input class="form-control" placeholder="Kode subkategori" name="subcategory_code[0]"
+                                    <input class="form-control" placeholder="Kode subkategori"
+                                           name="subcategory_code[0]"
                                            type="text" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="subcategory_name" class="control-label">Nama subkategori</label>
-                                    <input class="form-control" placeholder="Nama subkategori" name="subcategory_name[0]"
+                                    <input class="form-control" placeholder="Nama subkategori"
+                                           name="subcategory_name[0]"
                                            type="text" required>
                                 </div>
                             </div>
@@ -43,19 +47,25 @@
                                     <br/>
                                     <label for="subcategory_code" class="control-label">Kode subkategori</label>
                                     <input class="form-control" placeholder="Kode subkategori" name="subcategory_code"
-                                           type="text" required>
+                                           type="text" required disabled>
                                 </div>
                                 <div class="form-group">
                                     <label for="subcategory_name" class="control-label">Nama subkategori</label>
                                     <input class="form-control" placeholder="Nama subkategori" name="subcategory_name"
-                                           type="text" required>
+                                           type="text" required disabled>
                                 </div>
+                            </div>
+                            <div class="alert alert-danger" <?php if (!isset($error_message)) echo "hidden" ?>>
+                                <?php echo $error_message; ?>
+                            </div>
+                            <div class="alert alert-success" <?php if (!isset($message)) echo "hidden" ?>>
+                                <?php echo $message; ?>
                             </div>
                             <a class="btn btn-lg btn-success btn-block add-subcategory"
                                role="button">Tambah Subkategori</a>
+                            <hr/>
+                            <input class="btn btn-lg btn-primary btn-block" type="submit" value="Submit">
                         </fieldset>
-                        <hr/>
-                        <input class="btn btn-lg btn-primary btn-block" type="submit" value="Submit">
                     </form>
                 </div>
             </div>
