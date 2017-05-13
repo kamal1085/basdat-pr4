@@ -93,6 +93,15 @@ class Model
 		$query -> bindParam(':email_penjual', $email_penjual, PDO::PARAM_STR);
 		$query -> execute();
     }
+	
+	public function addTokoJasaKirim($nama_toko, $jasa_kirim)
+    {
+		$sql = "INSERT INTO TOKOKEREN.toko_jasa_kirim (nama_toko, jasa_kirim) VALUES (:nama_toko, :jasa_kirim);";
+		$query = $this->db->prepare($sql);
+		$query -> bindParam(':nama_toko', $nama_toko, PDO::PARAM_STR);
+		$query -> bindParam(':jasa_kirim', $jasa_kirim, PDO::PARAM_STR);
+		$query -> execute();
+    }
 
      public function getProdukPulsa()
     {
