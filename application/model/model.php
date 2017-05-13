@@ -74,7 +74,8 @@ class Model
         // $options = array(PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC ...
         return $query->fetchAll();
     }
-	public function addProduk($kode_produk, $nama_produk, $harga_produk, $deskripsi_produk)
+
+	public function addProduk($kode_produk, $nama_produk, $harga_produk, $deskripsi_produk) {
 
     }
 }
