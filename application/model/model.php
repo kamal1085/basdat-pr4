@@ -45,7 +45,7 @@ class Model
 
     public function getAllTransaksiPulsa()
     {
-        $sql = "SELECT * FROM TOKOKEREN.transaksi_pulsa;";
+        $sql = "SELECT * FROM TOKOKEREN.transaksi_pulsa limit 10 ;";
         $query = $this->db->prepare($sql);
         $query->execute();
 
@@ -84,10 +84,30 @@ class Model
 
      public function getProdukPulsa()
     {
-        $sql = "select p.kode_produk, p.nama, p.harga, p.deskripsi, pp.nominal from TOKOKEREN.produk p, TOKOKEREN.produk_pulsa pp where p.kode_produk = pp.kode_produk";
+        $sql = "select p.kode_produk, p.nama, p.harga, p.deskripsi, pp.nominal from TOKOKEREN.produk p, TOKOKEREN.produk_pulsa pp where p.kode_produk = pp.kode_produk order by kode_produk asc limit 10 offset 0;";
         $query = $this->db->prepare($sql);
         $query->execute();
 
+        return $query->fetchAll();
+    }
+
+    public function getAllTransaksiShipped($email)
+    {
+        $sql = "SELECT * FROM TOKOKEREN.transaksi_shipped where email_pembeli='$email' ;";
+        $query = $this->db->prepare($sql);
+        $query->execute();
+
+       
+        return $query->fetchAll();
+    }
+
+    public function getlistItem($noinvoice)
+    {
+        $sql = "SELECT * FROM TOKOKEREN.list_item where no_invoice='$noinvoice';";
+        $query = $this->db->prepare($sql);
+        $query->execute();
+
+       
         return $query->fetchAll();
     }
 }

@@ -12,6 +12,7 @@
                     <h3 class="panel-title">Daftar Produk Pulsa</h3>
                 </div>
                 <div class="panel-body">
+                    <div class="row">
                     <div class="col-md-12">
                         <table class="table table-striped">
                         <tr>
@@ -39,6 +40,18 @@
     </tr>
 <?php } ?>
                         </table>
+                    </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <ul class="pagination">
+                                  <li><a href="#">1</a></li>
+                                  <li><a href="#">2</a></li>
+                                  <li><a href="#">3</a></li>
+                                  <li><a href="#">4</a></li>
+                                  <li><a href="#">5</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>

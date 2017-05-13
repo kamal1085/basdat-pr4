@@ -33,41 +33,22 @@
                             <th>Jasa Kirim</th>
                             <th>ULASAN</th>
                             </tr>
-                            <tr>
-                            <td>
-                                V000000001
-                                </td>
-                                <td>Fashion Keren
-                                </td>
-                                <td>4/1/2016</td>
-                                <td>Barang Sudah Dibayar</td>
-                                <td>120000</td>
-                                <td>Jl Veteran 45, Depok</td>
-                                <td>25000</td>
-                                <td>DPK9816788882627</td>
-                                <td>JNE OKE</td>
-                               <td> <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalShowDetail">
+                             <?php foreach ($transshipped as $tshipped) { ?>
+    <tr>
+        <td><?php if (isset($tshipped->no_invoice)) echo htmlspecialchars($tshipped->no_invoice, ENT_QUOTES, 'UTF-8'); ?></td>
+        <td><?php if (isset($tshipped->nama_toko)) echo htmlspecialchars($tshipped->nama_toko, ENT_QUOTES, 'UTF-8'); ?></td>
+        <td><?php if (isset($tshipped->tanggal)) echo htmlspecialchars($tshipped->tanggal, ENT_QUOTES, 'UTF-8'); ?></td>
+        <td><?php if (isset($tshipped->status)) echo htmlspecialchars($tshipped->status, ENT_QUOTES, 'UTF-8'); ?></td>
+        <td><?php if (isset($tshipped->total_bayar)) echo htmlspecialchars($tshipped->total_bayar, ENT_QUOTES, 'UTF-8'); ?></td>
+        <td><?php if (isset($tshipped->alamat_kirim)) echo htmlspecialchars($tshipped->alamat_kirim, ENT_QUOTES, 'UTF-8'); ?></td>
+        <td><?php if (isset($tshipped->biaya_kirim)) echo htmlspecialchars($tshipped->biaya_kirim, ENT_QUOTES, 'UTF-8'); ?></td>
+        <td><?php if (isset($tshipped->no_resi)) echo htmlspecialchars($tshipped->no_resi, ENT_QUOTES, 'UTF-8'); ?></td>
+        <td><?php if (isset($tshipped->nama_jasa_kirim)) echo htmlspecialchars($tshipped->nama_jasa_kirim, ENT_QUOTES, 'UTF-8'); ?></td>
+        <td><button type="button" class="btn btn-primary btn-sm" onclick="loadDetailTransaksi('<?php if (isset($tshipped->no_invoice)) echo htmlspecialchars($tshipped->no_invoice, ENT_QUOTES, 'UTF-8'); ?>');" >
                                       Daftar Produk
                                     </button></td>
-                            </tr>
-                             <tr>
-                            <td>
-                                V000000002
-                                </td>
-                                <td>Toko Buku MG
-                                </td>
-                                <td>4/1/2016</td>
-                                <td>Transaksi Dilakukan</td>
-                                <td>250000</td>
-                                <td>Jl Pertiwi 34, Depok</td>
-                                <td>10000</td>
-                                <td>KOSONG</td>
-                                <td>JNE OKE</td>
-                               <td> <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalShowDetail">
-                                      Daftar Produk
-                                    </button></td>
-                            </tr>
-
+    </tr>
+<?php } ?>
                         </table>
                     </div>
                 </div>
@@ -86,10 +67,10 @@
       </div>
       <div class="modal-body">
       <div class="row">
-          No Invoice : V000000001
+          No Invoice : <label id="lblnoinvoice"></label>
       </div>
       <div class="row">
-       <table class="table table-striped">
+       <table class="table table-striped" id="tblmodal">
                         <tr>
                             <th>
                             Nama Produk
@@ -102,34 +83,7 @@
                             <th>Sub Total</th>
                             <th>ULASAN</th>
                             </tr>
-                            <tr>
-                            <td>
-                                Tas Bagus 1
-                                </td>
-                                <td>4
-                                </td>
-                                <td>4</td>
-                                <td>20000</td>
-                                <td>80000</td>
-                                
-                               <td> <a href="<?php echo URL; ?>index.php/ulasan" class="btn btn-primary btn-sm">
-                                      Ulas
-                                    </a></td>
-                            </tr>
-                             <tr>
-                            <td>
-                                Sepatu Cantik 23
-                                </td>
-                                <td>1
-                                </td>
-                                <td>1</td>
-                                <td>15000</td>
-                                <td>15000</td>
-                                
-                               <td> <a href="<?php echo URL; ?>index.php/ulasan" class="btn btn-primary btn-sm">
-                                      Ulas
-                                    </a></td>
-                            </tr>
+                             
 
                         </table>
                         </div>
