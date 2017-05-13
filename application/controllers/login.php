@@ -32,6 +32,8 @@ class Login extends Controller
             $_SESSION['is_admin'] = count($customers) == 0;
             if (!$_SESSION['is_admin']) {
                 $_SESSION['is_penjual'] = $customers[0]->is_penjual;
+            } else {
+                $_SESSION['is_penjual'] = false;
             }
 
             header("location: " . URL . "index.php");

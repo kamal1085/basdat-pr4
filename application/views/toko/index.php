@@ -11,7 +11,7 @@
                     <h3 class="panel-title">Form Membuat Toko</h3>
                 </div>
                 <div class="panel-body">
-                    <form accept-charset="UTF-8" role="form" id="tokoForm" action="./toko/addToko" method="post"> 
+                    <form accept-charset="UTF-8" role="form" id="tokoForm" action="<?php echo URL; ?>index.php/toko/addToko" method="post"> 
                         <fieldset>
                             <div class="form-group">
                                 <label for="nama_toko" class="control-label">Nama</label>
@@ -48,6 +48,12 @@
 								  <?php } ?>
 								</select>
 							</div>
+							<div class="alert alert-danger" <?php if (!isset($error_message)) echo "hidden" ?>>
+                                <?php echo $error_message; ?>
+                            </div>
+                            <div class="alert alert-success" <?php if (!isset($message)) echo "hidden" ?>>
+                                <?php echo $message; ?>
+                            </div>
                             <a class="btn btn-lg btn-success btn-block addButton" type="button">Tambah Jasa Kirim</a>
                         </fieldset>
                         <hr/>

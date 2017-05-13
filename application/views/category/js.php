@@ -17,8 +17,14 @@
 
             // Update the name attributes
             $clone.find('[id="label"]').text('Subkategori ' + (count + 1) + ':').end();
-            $clone.find('[name="subcategory_code"]').attr('name', 'subcategory_code[' + count + ']').end();
-            $clone.find('[name="subcategory_name"]').attr('name', 'subcategory_name[' + count + ']').end();
+            $clone.find('[name="subcategory_code"]')
+                .attr('name', 'subcategory_code[' + count + ']')
+                .removeAttr('disabled')
+                .end();
+            $clone.find('[name="subcategory_name"]')
+                .attr('name', 'subcategory_name[' + count + ']')
+                .removeAttr('disabled')
+                .end();
         })
     });
 </script>

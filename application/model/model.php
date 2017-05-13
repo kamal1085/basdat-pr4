@@ -72,8 +72,9 @@ class Model
         $query->execute();
     }
 
-    public function getAllCategories()
+    public function getKategori($kode)
     {
+// <<<<<<< HEAD
         $sql = "SELECT * FROM TOKOKEREN.kategori_utama";
         $query = $this->db->prepare($sql);
         $query->execute();
@@ -84,15 +85,48 @@ class Model
     public function getSubCategories()
     {
         $sql = "SELECT * FROM TOKOKEREN.sub_kategori";
+// =======
+        $sql = "SELECT * FROM TOKOKEREN.kategori_utama WHERE  kode = :kode";
+// >>>>>>> c11824df344324480006c52cc55071871ba465b7
         $query = $this->db->prepare($sql);
+        $query->bindParam(':kode', $kode, PDO::PARAM_STR);
         $query->execute();
 
         return $query->fetchAll();
     }
 
-    public function getAllTransaksiPulsa()
+    public function getSubKategori($kode)
     {
-        $sql = "SELECT * FROM TOKOKEREN.transaksi_pulsa;";
+        $sql = "SELECT * FROM TOKOKEREN.sub_kategori WHERE kode = :kode";
+        $query = $this->db->prepare($sql);
+        $query->bindParam(':kode', $kode, PDO::PARAM_STR);
+        $query->execute();
+
+        return $query->fetchAll();
+    }
+
+    public function addKategori($kode, $nama)
+    {
+        $sql = "INSERT INTO TOKOKEREN.kategori_utama (kode, nama) VALUES (:kode, :nama);";
+        $query = $this->db->prepare($sql);
+        $query->bindParam(':kode', $kode, PDO::PARAM_STR);
+        $query->bindParam(':nama', $nama, PDO::PARAM_STR);
+        $query->execute();
+    }
+
+    public function addSubKategori($kode_kategori, $kode, $nama)
+    {
+        $sql = "INSERT INTO TOKOKEREN.sub_kategori (kode_kategori, kode, nama) VALUES (:kode_kategori, :kode, :nama);";
+        $query = $this->db->prepare($sql);
+        $query->bindParam(':kode_kategori', $kode_kategori, PDO::PARAM_STR);
+        $query->bindParam(':kode', $kode, PDO::PARAM_STR);
+        $query->bindParam(':nama', $nama, PDO::PARAM_STR);
+        $query->execute();
+    }
+
+    public function getAllTransaksiPulsa($email)
+    {
+        $sql = "SELECT tp.no_invoice, p.nama, tp.tanggal, case when tp.status = 1 then 'Transaksi Dilakukan' else 'Pulsa Sudah dibayar' end statusstr, tp.total_bayar, tp.nominal, tp.nomor  FROM TOKOKEREN.transaksi_pulsa tp, TOKOKEREN.produk_pulsa pp, TOKOKEREN.produk p where tp.kode_produk = pp.kode_produk and pp.kode_produk = p.kode_produk and email_pembeli='$email' ;";
         $query = $this->db->prepare($sql);
         $query->execute();
 
@@ -103,6 +137,16 @@ class Model
     {
         $sql = "SELECT * FROM TOKOKEREN.jasa_kirim;";
         $query = $this->db->prepare($sql);
+        $query->execute();
+
+        return $query->fetchAll();
+    }
+	
+	public function getToko($nama)
+    {
+        $sql = "SELECT * FROM TOKOKEREN.toko WHERE  nama = :nama";
+        $query = $this->db->prepare($sql);
+        $query->bindParam(':nama', $nama, PDO::PARAM_STR);
         $query->execute();
 
         return $query->fetchAll();
@@ -148,8 +192,8 @@ class Model
         $query->bindParam(':jasa_kirim', $jasa_kirim, PDO::PARAM_STR);
         $query->execute();
     }
-	
-	public function updateStatusPelanggan($email)
+
+    public function updateStatusPelanggan($email)
     {
         $sql = "UPDATE TOKOKEREN.pelanggan SET is_penjual = TRUE WHERE email = :email;";
         $query = $this->db->prepare($sql);
@@ -158,11 +202,32 @@ class Model
     }
 
     public function getProdukPulsa()
-    {
-        $sql = "SELECT p.kode_produk, p.nama, p.harga, p.deskripsi, pp.nominal FROM TOKOKEREN.produk p, TOKOKEREN.produk_pulsa pp WHERE p.kode_produk = pp.kode_produk";
+    { 
+        $sql = "select p.kode_produk, p.nama, p.harga, p.deskripsi, pp.nominal from TOKOKEREN.produk p, TOKOKEREN.produk_pulsa pp where p.kode_produk = pp.kode_produk order by kode_produk asc;";
+ 
         $query = $this->db->prepare($sql);
         $query->execute();
 
+        return $query->fetchAll();
+    }
+
+    public function getAllTransaksiShipped($email)
+    {
+        $sql = "SELECT ts.*,  case when ts.status = 1 then 'Transaksi Dilakukan' else case when ts.status=2 then 'Barang sudah dibayar' else case when ts.status=3 then 'Barang sudah dikirim' else 'Barang Sudah diterima' end end end statusstr FROM TOKOKEREN.transaksi_shipped ts where email_pembeli='$email' ;";
+        $query = $this->db->prepare($sql);
+        $query->execute();
+
+       
+        return $query->fetchAll();
+    }
+
+    public function getlistItem($noinvoice)
+    {
+        $sql = "SELECT li.*, p.nama FROM TOKOKEREN.list_item li, TOKOKEREN.shipped_produk sp, TOKOKEREN.produk p where li.kode_produk = sp.kode_produk and sp.kode_produk = p.kode_produk and no_invoice='$noinvoice';";
+        $query = $this->db->prepare($sql);
+        $query->execute();
+
+       
         return $query->fetchAll();
     }
 
