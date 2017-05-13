@@ -18,8 +18,13 @@ if (!$this) {
                         href="<?php echo URL; ?>index.php/shopping/cart">Keranjang Belanja</a></li>
             <li <?php if (basename($_SERVER['PHP_SELF']) == 'toko') echo 'class="active"' ?>><a
                         href="<?php echo URL; ?>index.php/toko">Buka Toko</a></li>
-            <li <?php if (basename($_SERVER['PHP_SELF']) == 'shipped_produk') echo 'class="active"' ?>><a
-                        href="<?php echo URL; ?>index.php/produk/shipped_produk">Tambah Produk</a></li>
+
+            <?php if ($_SESSION['is_penjual']) {
+                echo "<li ";
+                if (basename($_SERVER['PHP_SELF']) == 'shipped_produk') echo 'class="active"';
+                echo "><a href='" . URL . "index.php/produk/shipped_produk'>Tambah Produk</a></li>";
+            }
+            ?>
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
