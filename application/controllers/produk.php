@@ -36,7 +36,8 @@ class Produk extends Controller
 		$deskripsi_produk  = $_POST['deskripsi_produk'];
 		$nominal_produk  = $_POST['nominal_produk'];
 		
-		$produkPulsa = $this->model->addProdukPulsa($kode_produk, $nama_produk, $harga_produk, $deskripsi_produk, $nominal_produk);
+		$produk = $this->model->addProduk($kode_produk, $nama_produk, $harga_produk, $deskripsi_produk, $nominal_produk);
+		$produkPulsa = $this->model->addProdukPulsa($kode_produk, $nominal_produk);
 
 		$url = rtrim(dirname($_SERVER['PHP_SELF']), '/\\'); // Get the current directory
 		$url .= '/';            // <-- Your relative path

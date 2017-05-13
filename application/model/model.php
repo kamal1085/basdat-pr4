@@ -57,7 +57,7 @@ class Model
         return $query->fetchAll();
     }
 	
-	public function addProdukPulsa($kode_produk, $nama_produk, $harga_produk, $deskripsi_produk, $nominal_produk)
+	public function addProduk($kode_produk, $nama_produk, $harga_produk, $deskripsi_produk)
     {
 		$sql = "INSERT INTO TOKOKEREN.produk (kode_produk, nama, harga, deskripsi) VALUES (:kode_produk, :nama, :harga, :deskripsi);";
 		$query = $this->db->prepare($sql);
@@ -65,6 +65,16 @@ class Model
 		$query -> bindParam(':nama', $nama_produk, PDO::PARAM_STR);
 		$query -> bindParam(':harga', $harga_produk, PDO::PARAM_INT);
 		$query -> bindParam(':deskripsi', $deskripsi_produk, PDO::PARAM_STR);
+		$query -> execute();
+
+    }
+	
+	public function addProdukPulsa($kode_produk, $nominal_produk)
+    {
+		$sql = "INSERT INTO TOKOKEREN.produk_pulsa (kode_produk, nominal) VALUES (:kode_produk, :nominal);";
+		$query = $this->db->prepare($sql);
+		$query -> bindParam(':kode_produk', $kode_produk, PDO::PARAM_STR);
+		$query -> bindParam(':nominal', $nominal_produk, PDO::PARAM_INT);
 		$query -> execute();
 
     }
