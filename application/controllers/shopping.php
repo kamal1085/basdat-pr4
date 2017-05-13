@@ -12,6 +12,8 @@ class Shopping extends Controller
 
     public function listpulsa()
     {
+      $listpulsa = $this->model->getProdukPulsa();
+
         require APP . 'views/_templates/header.php';
          require APP . 'views/_templates/customer_navbar.php';
         require APP . 'views/shopping/listpulsa.php';
