@@ -92,11 +92,6 @@ class Model
 		$query -> bindParam(':lokasi', $lokasi, PDO::PARAM_STR);
 		$query -> bindParam(':email_penjual', $email_penjual, PDO::PARAM_STR);
 		$query -> execute();
-		if(!$query->execute()) {
-			return 0;
-		} else {
-			return 1;
-		}
     }
 	
 	public function addTokoJasaKirim($nama_toko, $jasa_kirim)
