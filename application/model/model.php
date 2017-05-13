@@ -56,20 +56,12 @@ class Model
         $query->execute();
     }
 
-    /**
-     * TODO
-     * Get all categories from database
-     */
     public function getAllCategories()
     {
         $sql = "SELECT * FROM kategori";
         $query = $this->db->prepare($sql);
         $query->execute();
 
-        // fetchAll() is the PDO method that gets all result rows, here in object-style because we defined this in
-        // core/controller.php! If you prefer to get an associative array as the result, then do
-        // $query->fetchAll(PDO::FETCH_ASSOC); or change core/controller.php's PDO options to
-        // $options = array(PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC ...
         return $query->fetchAll();
     }
 
@@ -78,11 +70,7 @@ class Model
         $sql = "SELECT * FROM TOKOKEREN.transaksi_pulsa;";
         $query = $this->db->prepare($sql);
         $query->execute();
-
-        // fetchAll() is the PDO method that gets all result rows, here in object-style because we defined this in
-        // core/controller.php! If you prefer to get an associative array as the result, then do
-        // $query->fetchAll(PDO::FETCH_ASSOC); or change core/controller.php's PDO options to
-        // $options = array(PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC ...
+        
         return $query->fetchAll();
     }
 
@@ -91,11 +79,7 @@ class Model
         $sql = "SELECT * FROM TOKOKEREN.jasa_kirim;";
         $query = $this->db->prepare($sql);
         $query->execute();
-
-        // fetchAll() is the PDO method that gets all result rows, here in object-style because we defined this in
-        // core/controller.php! If you prefer to get an associative array as the result, then do
-        // $query->fetchAll(PDO::FETCH_ASSOC); or change core/controller.php's PDO options to
-        // $options = array(PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC ...
+ 
         return $query->fetchAll();
     }
 
@@ -117,5 +101,35 @@ class Model
         $query->bindParam(':kode_produk', $kode_produk, PDO::PARAM_STR);
         $query->bindParam(':nominal', $nominal_produk, PDO::PARAM_INT);
         $query->execute();
+    }
+	
+	public function addToko($nama, $deskripsi, $slogan, $lokasi, $email_penjual)
+    {
+		$sql = "INSERT INTO TOKOKEREN.toko (nama, deskripsi, slogan, lokasi, email_penjual) VALUES (:nama, :deskripsi, :slogan, :lokasi, :email_penjual);";
+		$query = $this->db->prepare($sql);
+		$query -> bindParam(':nama', $nama, PDO::PARAM_STR);
+		$query -> bindParam(':deskripsi', $deskripsi, PDO::PARAM_STR);
+		$query -> bindParam(':slogan', $slogan, PDO::PARAM_STR);
+		$query -> bindParam(':lokasi', $lokasi, PDO::PARAM_STR);
+		$query -> bindParam(':email_penjual', $email_penjual, PDO::PARAM_STR);
+		$query -> execute();
+    }
+	
+	public function addTokoJasaKirim($nama_toko, $jasa_kirim)
+    {
+		$sql = "INSERT INTO TOKOKEREN.toko_jasa_kirim (nama_toko, jasa_kirim) VALUES (:nama_toko, :jasa_kirim);";
+		$query = $this->db->prepare($sql);
+		$query -> bindParam(':nama_toko', $nama_toko, PDO::PARAM_STR);
+		$query -> bindParam(':jasa_kirim', $jasa_kirim, PDO::PARAM_STR);
+		$query -> execute();
+    }
+
+     public function getProdukPulsa()
+    {
+        $sql = "select p.kode_produk, p.nama, p.harga, p.deskripsi, pp.nominal from TOKOKEREN.produk p, TOKOKEREN.produk_pulsa pp where p.kode_produk = pp.kode_produk";
+        $query = $this->db->prepare($sql);
+        $query->execute();
+
+        return $query->fetchAll();
     }
 }
