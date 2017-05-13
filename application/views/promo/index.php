@@ -10,7 +10,7 @@
                     <h3 class="panel-title">Tambah Promo</h3>
                 </div>
                 <div class="panel-body">
-                    <form accept-charset="UTF-8" role="form">
+                    <form accept-charset="UTF-8" role="form" id="promoForm" action="./promo/addPromo" method="post">
                         <fieldset>
                             <div class="form-group">
                                 <label for="description" class="control-label">Deskripsi</label>
@@ -34,21 +34,19 @@
                             <div class="form-group">
                                 <label for="category_name" class="control-label">Kategori</label>
                                <select class="form-control" name="kategori" required>
-                                    <option>Kategori 1</option>
-                                    <option>Kategori 2</option>
-                                    <option>Kategori 3</option>
-                                    <option>Kategori 4</option>
-                                    <option>Kategori 5</option>
+                                    <?php foreach ($list_kategori as $key) { ?>
+                                        <option><?php echo $key->nama?></option>
+                                    <?php } ?>
+                                    
+                                   
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label for="subcategory_code" class="control-label">Subkategori</label>
                                <select class="form-control" name="subkategori" required>
-                                    <option>Subkategori 1</option>
-                                    <option>Subkategori 2</option>
-                                    <option>Subkategori 3</option>
-                                    <option>Subkategori 4</option>
-                                    <option>Subkategori 5</option>
+                                   <?php foreach ($list_subkategori as $key2) { ?>
+                                       <option><?php echo $key2->nama?></option>
+                                   <?php } ?>
                                 </select>
                             </div>
                         </fieldset>

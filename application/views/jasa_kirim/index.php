@@ -10,7 +10,7 @@
                     <h3 class="panel-title">Tambah Jasa Kirim</h3>
                 </div>
                 <div class="panel-body">
-                    <form accept-charset="UTF-8" role="form">
+                    <form accept-charset="UTF-8" role="form" id="jasakirimForm" action="./jasa_kirim/addJasaKirim" method="post">
                         <fieldset>
                             <div class="form-group">
                                 <label for="nama" class="control-label">Nama</label>

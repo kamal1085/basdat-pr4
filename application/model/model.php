@@ -74,7 +74,16 @@ class Model
 
     public function getAllCategories()
     {
-        $sql = "SELECT * FROM kategori";
+        $sql = "SELECT * FROM TOKOKEREN.kategori_utama";
+        $query = $this->db->prepare($sql);
+        $query->execute();
+
+        return $query->fetchAll();
+    }
+
+    public function getSubCategories()
+    {
+        $sql = "SELECT * FROM TOKOKEREN.sub_kategori";
         $query = $this->db->prepare($sql);
         $query->execute();
 
@@ -181,7 +190,12 @@ class Model
     
     public function addUlasan($kode_produk,$star,$komentar)
     {
-        $sql = "INSERT INTO TOKOKEREN.ulasan(email_pembeli,kode_produk,tanggal,rating,komentar) VALUES ('pembeli41@tokokeren.compact',:kode_produk,'2017-11-11',:star,:komentar);";
+        // $sql2 = "select a.email_pembeli, a.tanggal, b.kode_produk from transaksi_shipped a, list_item b
+        //         where a.no_invoice  = b.no_invoice and a.no_invoice = $invoice;"
+        // $query2 = $this->db->prepare($sql2);
+        // $row = pg_fetch_row($sql2)
+        // $query2 -> execute();
+        $sql = "INSERT INTO TOKOKEREN.ulasan(email_pembeli,kode_produk,tanggal,rating,komentar) VALUES ('a@a.com',:kode_produk,'2017-12-01',:star,:komentar);";
         $query = $this->db->prepare($sql);
         $query -> bindParam(':kode_produk', $kode_produk, PDO::PARAM_STR);
         $query -> bindParam(':star', $star, PDO::PARAM_INT);
