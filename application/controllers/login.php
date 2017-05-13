@@ -24,7 +24,7 @@ class Login extends Controller
 
         $email = $_POST['email'];
         $password = $_POST['password'];
-        $users = $this->model->getPengguna($email, $password);
+        $users = $this->model->login($email, $password);
         if (count($users) > 0) {
             $customers = $this->model->getPelanggan($email);
 

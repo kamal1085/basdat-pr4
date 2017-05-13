@@ -14,7 +14,7 @@ class Model
         }
     }
 
-    public function getPengguna($email, $password)
+    public function login($email, $password)
     {
         $sql = "SELECT * FROM TOKOKEREN.pengguna WHERE email = '$email' and password = '$password'";
         $query = $this->db->prepare($sql);
