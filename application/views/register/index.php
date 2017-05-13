@@ -10,7 +10,8 @@
                     <h3 class="panel-title">Daftar ke Tokokeren</h3>
                 </div>
                 <div class="panel-body">
-                    <form accept-charset="UTF-8" role="form">
+                    <form accept-charset="UTF-8" role="form" action="<?php echo URL; ?>index.php/register/submit"
+                          method="post">
                         <fieldset>
                             <div class="col-md-6">
                                 <div class="form-group">
@@ -58,6 +59,9 @@
                                     <input class="form-control" placeholder="No. Telepon" name="phone" type="tel"
                                            required>
                                 </div>
+                            </div>
+                            <div class="col-md-12 alert alert-danger" <?php if (!isset($error_message)) echo "hidden" ?>>
+                                <?php echo $error_message; ?>
                             </div>
                             <input class="btn btn-lg btn-success btn-block" type="submit" value="Daftar">
                         </fieldset>

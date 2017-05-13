@@ -43,7 +43,7 @@ class Application
                 }
             } else {
                 if (!isset($_SESSION['user'])) {
-                    $this->toLogin();
+                    $this->needLogin();
                     return;
                 }
             }
@@ -124,6 +124,13 @@ class Application
     }
 
     private function toLogin()
+    {
+        require APP . 'controllers/login.php';
+        $page = new Login();
+        $page->index();
+    }
+
+    private function needLogin()
     {
         require APP . 'controllers/login.php';
         $page = new Login();
