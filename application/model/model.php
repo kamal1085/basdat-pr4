@@ -96,4 +96,37 @@ class Model
 		$query -> execute();
 
     }
+
+    public function addPromo($description, $periode_awal, $periode_akhir, $kode)
+    {
+
+        $sql = "INSERT INTO TOKOKEREN.promo (id,deskripsi, periode_awal, periode_akhir,kode) VALUES ('X001', : description, :periode_awal, :periode_akhir);";
+        $query = $this->db->prepare($sql);
+        $query -> bindParam('X001', $id, PDO::PARAM_STR);
+        $query -> bindParam(':description', $id, PDO::PARAM_STR);
+        $query -> bindParam(':periode_awal', $periode_awal, PDO::PARAM_STR);
+        $query -> bindParam(':periode_akhir', $periode_akhir, PDO::PARAM_STR);
+        $query -> execute();
+    }
+
+    public function addJasaKirim($nama,$lama_kirim,$tarif)
+    {
+        $sql = "INSERT INTO TOKOKEREN.jasa_kirim (nama,lama_kirim,tarif) VALUES (:nama,:lama_kirim,:tarif);";
+        $query = $this->db->prepare($sql);
+        $query -> bindParam(':nama', $nama, PDO::PARAM_STR);
+        $query -> bindParam(':lama_kirim', $lama_kirim, PDO::PARAM_STR);
+        $query -> bindParam(':tarif', $tarif, PDO::PARAM_INT);
+        $query -> execute();
+    }
+    
+    public function addUlasan($kode_produk,$star,$komentar)
+    {
+        $sql = "INSERT INTO TOKOKEREN.ulasan(email_pembeli,kode_produk,tanggal,rating,komentar) VALUES ('pembeli41@tokokeren.compact',:kode_produk,'2017-11-11',:star,:komentar);";
+        $query = $this->db->prepare($sql);
+        $query -> bindParam(':kode_produk', $kode_produk, PDO::PARAM_STR);
+        $query -> bindParam(':star', $star, PDO::PARAM_INT);
+        $query -> bindParam(':komentar', $komentar, PDO::PARAM_STR);
+        $query -> execute();
+        echo $sql;
+    }
 }
