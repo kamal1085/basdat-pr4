@@ -78,6 +78,8 @@ class Register extends Controller
             $this->model->addPengguna($_POST['email'], $_POST['password'], $_POST['name'], $_POST['gender'],
                 $_POST['birth_date'], $_POST['phone'], $_POST['address']);
 
+            $this->model->addPelanggan($_POST['email'], false, 0, 0);
+
             $users = $this->model->getPengguna($_POST['email']);
             $_SESSION['user'] = $users[0];
             $_SESSION['is_admin'] = false;

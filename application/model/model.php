@@ -60,6 +60,18 @@ class Model
         $query->execute();
     }
 
+    public function addPelanggan($email, $is_penjual, $nilai_reputasi, $poin)
+    {
+        $sql = "INSERT INTO TOKOKEREN.pelanggan (email, is_penjual, nilai_reputasi, poin) " .
+            "VALUES (:email, :is_penjual, :nilai_reputasi, :poin);";
+        $query = $this->db->prepare($sql);
+        $query->bindParam(':email', $email, PDO::PARAM_STR);
+        $query->bindParam(':is_penjual', $is_penjual, PDO::PARAM_BOOL);
+        $query->bindParam(':nilai_reputasi', $nilai_reputasi, PDO::PARAM_INT);
+        $query->bindParam(':poin', $poin, PDO::PARAM_INT);
+        $query->execute();
+    }
+
     public function getAllCategories()
     {
         $sql = "SELECT * FROM kategori";
