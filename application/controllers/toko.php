@@ -16,8 +16,9 @@ class Toko extends Controller
     //TODO
     public function addToko()
     {
-		$text1  = $_POST['name'];
-		echo $text1[0]."-".$_SESSION['user']->is_penjual;
+		$text1  = $_POST['deskripsi_toko'];
+		//$arrlength = count($text1);
+		echo $text1."-".$_SESSION['user']->email;
 		
     }
 }
