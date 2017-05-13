@@ -81,6 +81,18 @@ class Model
 		$query -> bindParam(':nominal', $nominal_produk, PDO::PARAM_INT);
 		$query -> execute();
     }
+	
+	public function addToko($nama, $deskripsi, $slogan, $lokasi, $email_penjual)
+    {
+		$sql = "INSERT INTO TOKOKEREN.toko (nama, deskripsi, slogan, lokasi, email_penjual) VALUES (:nama, :deskripsi, :slogan, :lokasi, :email_penjual);";
+		$query = $this->db->prepare($sql);
+		$query -> bindParam(':nama', $nama, PDO::PARAM_STR);
+		$query -> bindParam(':deskripsi', $deskripsi, PDO::PARAM_STR);
+		$query -> bindParam(':slogan', $slogan, PDO::PARAM_STR);
+		$query -> bindParam(':lokasi', $lokasi, PDO::PARAM_STR);
+		$query -> bindParam(':email_penjual', $email_penjual, PDO::PARAM_STR);
+		$query -> execute();
+    }
 
      public function getProdukPulsa()
     {
