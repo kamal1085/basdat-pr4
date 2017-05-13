@@ -56,6 +56,11 @@ class Register extends Controller
             return;
         }
 
+        if (strtotime($_POST['birth_date']) >= strtotime('now')) {
+            $this->error("Tanggal lahir tidak valid!");
+            return;
+        }
+
         if (!isset($_POST['gender'])) {
             $this->error("Mohon pilih jenis kelamin anda!");
             return;
