@@ -1,9 +1,9 @@
 <?php
 
-/** 
-Prepare by kelompok 11 Basdat
- main application
-**/
+/**
+ * Prepare by kelompok 11 Basdat
+ * main application
+ **/
 class Application
 {
     /** @var null The controller */
@@ -23,15 +23,30 @@ class Application
     {
         // create array with URL parts in $url
         $this->getUrlWithoutModRewrite();
- 
+
         if (!$this->url_controller) {
 
-            require APP . 'controllers/home.php';
-            $page = new Home();
-            $page->index();
+            if (!isset($_SESSION['user'])) {
+                $this->toLogin();
+                return;
+            }
+
+            $this->toHome();
 
         } elseif (file_exists(APP . 'controllers/' . $this->url_controller . '.php')) {
             // here we did check for controller: does such a controller exist ?
+
+            if ((strpos($this->url_controller, 'login') !== false) || (strpos($this->url_controller, 'register') !== false)) {
+                if (isset($_SESSION['user'])) {
+                    $this->toHome();
+                    return;
+                }
+            } else {
+                if (!isset($_SESSION['user'])) {
+                    $this->toLogin();
+                    return;
+                }
+            }
 
             // if so, then load this file and create this controller
             // example: if controller would be "car", then this line would translate into: $this->car = new car();
@@ -92,7 +107,7 @@ class Application
             $url = array_values($url);
         }
 
-     
+
         $this->url_controller = isset($url[0]) ? $url[0] : null;
         $this->url_action = isset($url[1]) ? $url[1] : null;
 
@@ -106,5 +121,19 @@ class Application
         //echo 'Controller: ' . $this->url_controller . '<br>';
         //echo 'Action: ' . $this->url_action . '<br>';
         //echo 'Parameters: ' . print_r($this->url_params, true) . '<br>';
+    }
+
+    private function toLogin()
+    {
+        require APP . 'controllers/login.php';
+        $page = new Login();
+        $page->error("Mohon untuk login terlebih dahulu!");
+    }
+
+    private function toHome()
+    {
+        require APP . 'controllers/home.php';
+        $page = new Home();
+        $page->index();
     }
 }

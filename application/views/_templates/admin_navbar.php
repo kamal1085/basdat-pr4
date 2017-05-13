@@ -20,7 +20,14 @@ if (!$this) {
                         href="<?php echo URL; ?>index.php/produk/produk_pulsa">Tambah Produk</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="<?php echo URL; ?>index.php/login">Logout</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                   aria-expanded="false">Admin <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="<?php echo URL; ?>index.php/home/logout">Logout</a>
+                </ul>
+            </li>
+            </li>
         </ul>
     </div>
 </nav>
