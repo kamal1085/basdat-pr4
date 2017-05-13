@@ -26,33 +26,18 @@
                             <th>Nominal</th>
                             <th>Beli</th>
                             </tr>
-                            <tr>
-                            <td>
-                                P0000001
-                                </td>
-                                <td>Pulsa IM3
-                                </td>
-                                <td>12000</td>
-                                <td></td>
-                                <td>10</td>
-                                <td> <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalBuyPulsa">
+                             <?php foreach ($listpulsa as $tpulsa) { ?>
+    <tr>
+        <td><?php if (isset($tpulsa->kode_produk)) echo htmlspecialchars($tpulsa->kode_produk, ENT_QUOTES, 'UTF-8'); ?></td>
+        <td><?php if (isset($tpulsa->nama)) echo htmlspecialchars($tpulsa->nama, ENT_QUOTES, 'UTF-8'); ?></td>
+        <td><?php if (isset($tpulsa->harga)) echo htmlspecialchars($tpulsa->harga, ENT_QUOTES, 'UTF-8'); ?></td>
+        <td><?php if (isset($tpulsa->deskripsi)) echo htmlspecialchars($tpulsa->deskripsi, ENT_QUOTES, 'UTF-8'); ?></td>
+        <td><?php if (isset($tpulsa->nominal)) echo htmlspecialchars($tpulsa->nominal, ENT_QUOTES, 'UTF-8'); ?></td>
+         <td> <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalBuyPulsa">
                                       Beli
                                     </button></td>
-                            </tr>
-                            <tr>
-                            <td>
-                                P0000002
-                                </td>
-                                <td>Pulsa XL
-                                </td>
-                                <td>12000</td>
-                                <td></td>
-                                <td>10</td>
-                                <td> <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalBuyPulsa">
-                                      Beli
-                                    </button></td>
-                            </tr>
-
+    </tr>
+<?php } ?>
                         </table>
                     </div>
                 </div>
