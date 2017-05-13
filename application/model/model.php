@@ -23,6 +23,15 @@ class Model
         return $query->fetchAll();
     }
 
+    public function getPengguna($email)
+    {
+        $sql = "SELECT * FROM TOKOKEREN.pengguna WHERE email = '$email'";
+        $query = $this->db->prepare($sql);
+        $query->execute();
+
+        return $query->fetchAll();
+    }
+
     public function getPelanggan($email)
     {
         $sql = "SELECT * FROM TOKOKEREN.pelanggan WHERE email = '$email'";
@@ -30,6 +39,21 @@ class Model
         $query->execute();
 
         return $query->fetchAll();
+    }
+
+    public function addPengguna($email, $password, $nama, $jenis_kelamin, $tgl_lahir, $no_telp, $alamat)
+    {
+        $sql = "INSERT INTO TOKOKEREN.pengguna (email, password, nama, jenis_kelamin, tgl_lahir, no_telp, alamat) " .
+            "VALUES (:email, :password, :nama, :jenis_kelamin, :tgl_lahir, :no_telp, :alamat);";
+        $query = $this->db->prepare($sql);
+        $query->bindParam(':email', $email, PDO::PARAM_STR);
+        $query->bindParam(':password', $password, PDO::PARAM_STR);
+        $query->bindParam(':nama', $nama, PDO::PARAM_STR);
+        $query->bindParam(':jenis_kelamin', $jenis_kelamin, PDO::PARAM_STR);
+        $query->bindParam(':tgl_lahir', $tgl_lahir, PDO::PARAM_STR);
+        $query->bindParam(':no_telp', $no_telp, PDO::PARAM_STR);
+        $query->bindParam(':alamat', $alamat, PDO::PARAM_STR);
+        $query->execute();
     }
 
     /**
@@ -74,24 +98,24 @@ class Model
         // $options = array(PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC ...
         return $query->fetchAll();
     }
-	
-	public function addProduk($kode_produk, $nama_produk, $harga_produk, $deskripsi_produk)
+
+    public function addProduk($kode_produk, $nama_produk, $harga_produk, $deskripsi_produk)
     {
-		$sql = "INSERT INTO TOKOKEREN.produk (kode_produk, nama, harga, deskripsi) VALUES (:kode_produk, :nama, :harga, :deskripsi);";
-		$query = $this->db->prepare($sql);
-		$query -> bindParam(':kode_produk', $kode_produk, PDO::PARAM_STR);
-		$query -> bindParam(':nama', $nama_produk, PDO::PARAM_STR);
-		$query -> bindParam(':harga', $harga_produk, PDO::PARAM_INT);
-		$query -> bindParam(':deskripsi', $deskripsi_produk, PDO::PARAM_STR);
-		$query -> execute();
+        $sql = "INSERT INTO TOKOKEREN.produk (kode_produk, nama, harga, deskripsi) VALUES (:kode_produk, :nama, :harga, :deskripsi);";
+        $query = $this->db->prepare($sql);
+        $query->bindParam(':kode_produk', $kode_produk, PDO::PARAM_STR);
+        $query->bindParam(':nama', $nama_produk, PDO::PARAM_STR);
+        $query->bindParam(':harga', $harga_produk, PDO::PARAM_INT);
+        $query->bindParam(':deskripsi', $deskripsi_produk, PDO::PARAM_STR);
+        $query->execute();
     }
-	
-	public function addProdukPulsa($kode_produk, $nominal_produk)
+
+    public function addProdukPulsa($kode_produk, $nominal_produk)
     {
-		$sql = "INSERT INTO TOKOKEREN.produk_pulsa (kode_produk, nominal) VALUES (:kode_produk, :nominal);";
-		$query = $this->db->prepare($sql);
-		$query -> bindParam(':kode_produk', $kode_produk, PDO::PARAM_STR);
-		$query -> bindParam(':nominal', $nominal_produk, PDO::PARAM_INT);
-		$query -> execute();
+        $sql = "INSERT INTO TOKOKEREN.produk_pulsa (kode_produk, nominal) VALUES (:kode_produk, :nominal);";
+        $query = $this->db->prepare($sql);
+        $query->bindParam(':kode_produk', $kode_produk, PDO::PARAM_STR);
+        $query->bindParam(':nominal', $nominal_produk, PDO::PARAM_INT);
+        $query->execute();
     }
 }
