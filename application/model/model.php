@@ -139,6 +139,14 @@ class Model
         $query->bindParam(':jasa_kirim', $jasa_kirim, PDO::PARAM_STR);
         $query->execute();
     }
+	
+	public function updateStatusPelanggan($email)
+    {
+        $sql = "UPDATE TOKOKEREN.pelanggan SET is_penjual = TRUE WHERE email = :email;";
+        $query = $this->db->prepare($sql);
+        $query->bindParam(':email', $email, PDO::PARAM_STR);
+        $query->execute();
+    }
 
     public function getProdukPulsa()
     {
