@@ -189,12 +189,9 @@ class Model
     }
 
     public function getProdukPulsa()
-    {
-<<<<<<< HEAD
-        $sql = "select p.kode_produk, p.nama, p.harga, p.deskripsi, pp.nominal from TOKOKEREN.produk p, TOKOKEREN.produk_pulsa pp where p.kode_produk = pp.kode_produk order by kode_produk asc limit 10 offset 0;";
-=======
-        $sql = "SELECT p.kode_produk, p.nama, p.harga, p.deskripsi, pp.nominal FROM TOKOKEREN.produk p, TOKOKEREN.produk_pulsa pp WHERE p.kode_produk = pp.kode_produk";
->>>>>>> 09fbdefe6e809eef0f3f51bf91aea48d77bb558e
+    { 
+        $sql = "select p.kode_produk, p.nama, p.harga, p.deskripsi, pp.nominal from TOKOKEREN.produk p, TOKOKEREN.produk_pulsa pp where p.kode_produk = pp.kode_produk order by kode_produk asc;";
+ 
         $query = $this->db->prepare($sql);
         $query->execute();
 
