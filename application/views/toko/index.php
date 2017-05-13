@@ -48,6 +48,12 @@
 								  <?php } ?>
 								</select>
 							</div>
+							<div class="alert alert-danger" <?php if (!isset($error_message)) echo "hidden" ?>>
+                                <?php echo $error_message; ?>
+                            </div>
+                            <div class="alert alert-success" <?php if (!isset($message)) echo "hidden" ?>>
+                                <?php echo $message; ?>
+                            </div>
                             <a class="btn btn-lg btn-success btn-block addButton" type="button">Tambah Jasa Kirim</a>
                         </fieldset>
                         <hr/>

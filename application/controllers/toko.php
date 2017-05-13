@@ -27,4 +27,22 @@ class Toko extends Controller
 		 
 		header("location: " . URL . "index.php");
     }
+	
+	public function success($message)
+    {
+        require APP . 'views/_templates/header.php';
+        require APP . 'views/_templates/customer_navbar.php';
+        require APP . 'views/toko/index.php';
+        require APP . 'views/_templates/footer.php';
+        require APP . 'views/toko/js.php';
+    }
+
+    public function error($error_message)
+    {
+        require APP . 'views/_templates/header.php';
+        require APP . 'views/_templates/customer_navbar.php';
+        require APP . 'views/toko/index.php';
+        require APP . 'views/_templates/footer.php';
+        require APP . 'views/toko/js.php';
+    }
 }
