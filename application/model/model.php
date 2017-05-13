@@ -210,7 +210,7 @@ class Model
 
     public function getlistItem($noinvoice)
     {
-        $sql = "SELECT * FROM TOKOKEREN.list_item where no_invoice='$noinvoice';";
+        $sql = "SELECT li.*, p.nama FROM TOKOKEREN.list_item li, TOKOKEREN.shipped_produk sp, TOKOKEREN.produk p where li.kode_produk = sp.kode_produk and sp.kode_produk = p.kode_produk and no_invoice='$noinvoice';";
         $query = $this->db->prepare($sql);
         $query->execute();
 

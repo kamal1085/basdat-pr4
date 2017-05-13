@@ -35,7 +35,7 @@
                       $.each(object, function (_,dprod) {
                         //console.log(dprod["kode_produk"]);
                           tr = $("<tr />");
-                          tr.append("<td>"+dprod["kode_produk"]+"</td>");
+                          tr.append("<td>"+dprod["nama"]+"</td>");
                           tr.append("<td>"+dprod["berat"]+"</td>");
                           tr.append("<td>"+dprod["kuantitas"]+"</td>");
                           tr.append("<td>"+dprod["harga"]+"</td>");
