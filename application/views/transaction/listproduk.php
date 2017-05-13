@@ -38,7 +38,7 @@
         <td><?php if (isset($tshipped->no_invoice)) echo htmlspecialchars($tshipped->no_invoice, ENT_QUOTES, 'UTF-8'); ?></td>
         <td><?php if (isset($tshipped->nama_toko)) echo htmlspecialchars($tshipped->nama_toko, ENT_QUOTES, 'UTF-8'); ?></td>
         <td><?php if (isset($tshipped->tanggal)) echo htmlspecialchars($tshipped->tanggal, ENT_QUOTES, 'UTF-8'); ?></td>
-        <td><?php if (isset($tshipped->status)) echo htmlspecialchars($tshipped->status, ENT_QUOTES, 'UTF-8'); ?></td>
+        <td><?php if (isset($tshipped->statusstr)) echo htmlspecialchars($tshipped->statusstr, ENT_QUOTES, 'UTF-8'); ?></td>
         <td><?php if (isset($tshipped->total_bayar)) echo htmlspecialchars($tshipped->total_bayar, ENT_QUOTES, 'UTF-8'); ?></td>
         <td><?php if (isset($tshipped->alamat_kirim)) echo htmlspecialchars($tshipped->alamat_kirim, ENT_QUOTES, 'UTF-8'); ?></td>
         <td><?php if (isset($tshipped->biaya_kirim)) echo htmlspecialchars($tshipped->biaya_kirim, ENT_QUOTES, 'UTF-8'); ?></td>

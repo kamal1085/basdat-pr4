@@ -200,7 +200,7 @@ class Model
 
     public function getAllTransaksiShipped($email)
     {
-        $sql = "SELECT * FROM TOKOKEREN.transaksi_shipped where email_pembeli='$email' ;";
+        $sql = "SELECT ts.*,  case when ts.status = 1 then 'Transaksi Dilakukan' else case when ts.status=2 then 'Barang sudah dibayar' else case when ts.status=3 then 'Barang sudah dikirim' else 'Barang Sudah diterima' end end end statusstr FROM TOKOKEREN.transaksi_shipped ts where email_pembeli='$email' ;";
         $query = $this->db->prepare($sql);
         $query->execute();
 
