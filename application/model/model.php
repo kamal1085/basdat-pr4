@@ -111,9 +111,9 @@ class Model
         $query->execute();
     }
 
-    public function getAllTransaksiPulsa()
+    public function getAllTransaksiPulsa($email)
     {
-        $sql = "SELECT * FROM TOKOKEREN.transaksi_pulsa limit 10 ;";
+        $sql = "SELECT tp.no_invoice, p.nama, tp.tanggal, case when tp.status = 1 then 'Transaksi Dilakukan' else 'Pulsa Sudah dibayar' end statusstr, tp.total_bayar, tp.nominal, tp.nomor  FROM TOKOKEREN.transaksi_pulsa tp, TOKOKEREN.produk_pulsa pp, TOKOKEREN.produk p where tp.kode_produk = pp.kode_produk and pp.kode_produk = p.kode_produk and email_pembeli='$email' ;";
         $query = $this->db->prepare($sql);
         $query->execute();
 

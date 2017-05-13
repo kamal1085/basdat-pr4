@@ -12,7 +12,7 @@ class Transaction extends Controller
 
     public function listpulsa()
     {
-        $transpulsa = $this->model->getAllTransaksiPulsa();
+        $transpulsa = $this->model->getAllTransaksiPulsa($_SESSION['user']->email);
 
         //echo $transpulsa;
         require APP . 'views/_templates/header.php';

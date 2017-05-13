@@ -26,20 +26,18 @@
                             <th>Total Bayar</th>
                             <th>Nominal</th>
                             <th>Nomor</th>
-                            <th>ULASAN</th>
+                            
                             </tr>
                             <?php foreach ($transpulsa as $tpulsa) { ?>
     <tr>
         <td><?php if (isset($tpulsa->no_invoice)) echo htmlspecialchars($tpulsa->no_invoice, ENT_QUOTES, 'UTF-8'); ?></td>
-        <td><?php if (isset($tpulsa->kode_produk)) echo htmlspecialchars($tpulsa->kode_produk, ENT_QUOTES, 'UTF-8'); ?></td>
+        <td><?php if (isset($tpulsa->nama)) echo htmlspecialchars($tpulsa->nama, ENT_QUOTES, 'UTF-8'); ?></td>
         <td><?php if (isset($tpulsa->tanggal)) echo htmlspecialchars($tpulsa->tanggal, ENT_QUOTES, 'UTF-8'); ?></td>
-        <td><?php if (isset($tpulsa->status)) echo htmlspecialchars($tpulsa->status, ENT_QUOTES, 'UTF-8'); ?></td>
+        <td><?php if (isset($tpulsa->statusstr)) echo htmlspecialchars($tpulsa->statusstr, ENT_QUOTES, 'UTF-8'); ?></td>
         <td><?php if (isset($tpulsa->total_bayar)) echo htmlspecialchars($tpulsa->total_bayar, ENT_QUOTES, 'UTF-8'); ?></td>
         <td><?php if (isset($tpulsa->nominal)) echo htmlspecialchars($tpulsa->nominal, ENT_QUOTES, 'UTF-8'); ?></td>
         <td><?php if (isset($tpulsa->nomor)) echo htmlspecialchars($tpulsa->nomor, ENT_QUOTES, 'UTF-8'); ?></td>
-        <td><a href="<?php echo URL; ?>index.php/ulasan" class="btn btn-primary btn-sm">
-                                      Ulas
-                                    </a></td>
+         
     </tr>
 <?php } ?>
                             
