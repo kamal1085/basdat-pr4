@@ -268,4 +268,20 @@ class Model
         $query -> execute();
         echo $sql;
     }
+
+    public function addTransaksiPulsa($kode_produk,$nomor)
+    {
+        $sql = "INSERT INTO TOKOKEREN.transaksi_pulsa VALUES (:no_invoice,:tanggal,:waktu_bayar,:status,:total_bayar,:email_pembeli,:nominal,:nomor,:kode_produk);";
+        $query = $this->db->prepare($sql);
+         $query -> bindParam(':no_invoice', $nama, PDO::PARAM_STR);
+          $query -> bindParam(':nama', $nama, PDO::PARAM_STR);
+           $query -> bindParam(':nama', $nama, PDO::PARAM_STR);
+            $query -> bindParam(':nama', $nama, PDO::PARAM_STR);
+             $query -> bindParam(':nama', $nama, PDO::PARAM_STR);
+              $query -> bindParam(':nama', $nama, PDO::PARAM_STR);
+               $query -> bindParam(':nama', $nama, PDO::PARAM_STR);
+                $query -> bindParam(':nama', $nama, PDO::PARAM_STR);
+                 $query -> bindParam(':kode_produk', $kode_produk, PDO::PARAM_STR);
+        $query -> execute();
+    }
 }
