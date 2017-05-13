@@ -14,6 +14,24 @@ class Model
         }
     }
 
+    public function getPengguna($email, $password)
+    {
+        $sql = "SELECT * FROM TOKOKEREN.pengguna WHERE email = '$email' and password = '$password'";
+        $query = $this->db->prepare($sql);
+        $query->execute();
+
+        return $query->fetchAll();
+    }
+
+    public function getPelanggan($email)
+    {
+        $sql = "SELECT * FROM TOKOKEREN.pelanggan WHERE email = '$email'";
+        $query = $this->db->prepare($sql);
+        $query->execute();
+
+        return $query->fetchAll();
+    }
+
     /**
      * TODO
      * Get all categories from database
@@ -43,8 +61,8 @@ class Model
         // $options = array(PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC ...
         return $query->fetchAll();
     }
-	
-	public function getAllJasaKirim()
+
+    public function getAllJasaKirim()
     {
         $sql = "SELECT * FROM TOKOKEREN.jasa_kirim;";
         $query = $this->db->prepare($sql);

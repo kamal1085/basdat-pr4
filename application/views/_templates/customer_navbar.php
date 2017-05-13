@@ -22,7 +22,14 @@ if (!$this) {
                         href="<?php echo URL; ?>index.php/produk/shipped_produk">Tambah Produk</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="<?php echo URL; ?>index.php/login">Logout</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                   aria-expanded="false"><?php echo $_SESSION['user']->nama; ?> <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="<?php echo URL; ?>index.php/home/logout">Logout</a>
+                </ul>
+            </li>
+            </li>
         </ul>
     </div>
 </nav>

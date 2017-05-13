@@ -10,7 +10,8 @@
                     <h3 class="panel-title">Login ke Tokokeren</h3>
                 </div>
                 <div class="panel-body">
-                    <form accept-charset="UTF-8" role="form">
+                    <form accept-charset="UTF-8" role="form" action="<?php echo URL; ?>index.php/login/submit"
+                          method="post">
                         <fieldset>
                             <div class="form-group">
                                 <label for="email" class="control-label">Email</label>
@@ -20,6 +21,9 @@
                                 <label for="password" class="control-label">Password</label>
                                 <input class="form-control" placeholder="Password" name="password" type="password"
                                        required>
+                            </div>
+                            <div class="alert alert-danger" <?php if (!isset($error_message)) echo "hidden" ?>>
+                                <?php echo $error_message; ?>
                             </div>
                             <input class="btn btn-lg btn-success btn-block" type="submit" value="Login">
                         </fieldset>
