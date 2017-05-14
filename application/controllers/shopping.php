@@ -21,6 +21,16 @@ class Shopping extends Controller
           require APP . 'views/shopping/jspulsa.php';
     }
 
+    public function addTransaksiPulsa()
+    {
+        $kodeproduk = $_POST['kodeproduk'];
+        $nomor = $_POST['nomor'];
+       
+        $jasa_kirim = $this->model->addJasaKirim($nama, $lama_kirim, $tarif);
+
+        header("location: " . URL . "index.php");
+    }
+
     public function listproduk()
     {
         require APP . 'views/_templates/header.php';

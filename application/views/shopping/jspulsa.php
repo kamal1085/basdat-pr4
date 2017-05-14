@@ -12,4 +12,10 @@
         });
                  
 });
+
+    function loadFormBeli(kodeproduk)
+    {
+        $('#kodeproduk').val(kodeproduk);
+        $('#modalBuyPulsa').modal('show');
+    }
 </script>

@@ -34,7 +34,7 @@
         <td><?php if (isset($tpulsa->harga)) echo htmlspecialchars($tpulsa->harga, ENT_QUOTES, 'UTF-8'); ?></td>
         <td><?php if (isset($tpulsa->deskripsi)) echo htmlspecialchars($tpulsa->deskripsi, ENT_QUOTES, 'UTF-8'); ?></td>
         <td><?php if (isset($tpulsa->nominal)) echo htmlspecialchars($tpulsa->nominal, ENT_QUOTES, 'UTF-8'); ?></td>
-         <td> <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalBuyPulsa">
+         <td> <button type="button" class="btn btn-primary btn-sm" onclick="loadFormBeli('<?php if (isset($tpulsa->kode_produk)) echo htmlspecialchars($tpulsa->kode_produk, ENT_QUOTES, 'UTF-8'); ?>');" >
                                       Beli
                                     </button></td>
     </tr>
@@ -69,8 +69,8 @@
       <div class="modal-body">
        <fieldset>
                             <div class="form-group">
-                                <label for="email" class="control-label">Kode Produk</label>
-                                <input class="form-control" placeholder="KodeProduk" value="P0000001" name="kodeproduk" type="text" >
+                                <label for="kodeproduk" class="control-label">Kode Produk</label>
+                                <input class="form-control" placeholder="Kode Produk" id="kodeproduk" name="kodeproduk" type="text" >
                             </div>
                             <div class="form-group">
                                 <label for="password" class="control-label">Nomor HP / Token Listrik</label>
