@@ -74,7 +74,6 @@ class Model
 
     public function getKategori($kode)
     {
-// <<<<<<< HEAD
         $sql = "SELECT * FROM TOKOKEREN.kategori_utama";
         $query = $this->db->prepare($sql);
         $query->execute();
@@ -82,14 +81,29 @@ class Model
         return $query->fetchAll();
     }
 
+
+    public function getAllCategories()
+    {
+        $sql = "SELECT * from TOKOKEREN.kategori_utama";
+        $query = $this->db->prepare($sql);
+        $query->execute();
+
+        return $query->fetchAll();
+    }
+
+    public function getCategories()
+    {
+        $sql = "SELECT kode_kategori from TOKOKEREN.kategori_utama";
+        $query = $this->db->prepare($sql);
+        $query->execute();
+        
+        return $query->fetchAll();
+    }
+
     public function getSubCategories()
     {
         $sql = "SELECT * FROM TOKOKEREN.sub_kategori";
-// =======
-        $sql = "SELECT * FROM TOKOKEREN.kategori_utama WHERE  kode = :kode";
-// >>>>>>> c11824df344324480006c52cc55071871ba465b7
         $query = $this->db->prepare($sql);
-        $query->bindParam(':kode', $kode, PDO::PARAM_STR);
         $query->execute();
 
         return $query->fetchAll();
@@ -255,12 +269,7 @@ class Model
     
     public function addUlasan($kode_produk,$star,$komentar)
     {
-        // $sql2 = "select a.email_pembeli, a.tanggal, b.kode_produk from transaksi_shipped a, list_item b
-        //         where a.no_invoice  = b.no_invoice and a.no_invoice = $invoice;"
-        // $query2 = $this->db->prepare($sql2);
-        // $row = pg_fetch_row($sql2)
-        // $query2 -> execute();
-        $sql = "INSERT INTO TOKOKEREN.ulasan(email_pembeli,kode_produk,tanggal,rating,komentar) VALUES ('a@a.com',:kode_produk,'2017-12-01',:star,:komentar);";
+            $sql = "INSERT INTO TOKOKEREN.ulasan(email_pembeli,kode_produk,tanggal,rating,komentar) VALUES ('a@a.com',:kode_produk,'2017-12-01',:star,:komentar);";
         $query = $this->db->prepare($sql);
         $query -> bindParam(':kode_produk', $kode_produk, PDO::PARAM_STR);
         $query -> bindParam(':star', $star, PDO::PARAM_INT);
