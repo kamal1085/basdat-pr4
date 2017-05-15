@@ -283,15 +283,16 @@ class Model
         return $query->fetchAll();
     }
 
-    public function addPromo($description, $periode_awal, $periode_akhir, $kode)
+    public function addPromo($id,$description, $periode_awal, $periode_akhir, $kode)
     {
 
-        $sql = "INSERT INTO TOKOKEREN.promo (id,deskripsi, periode_awal, periode_akhir,kode) VALUES ('X001', : description, :periode_awal, :periode_akhir);";
+        $sql = "INSERT INTO TOKOKEREN.promo (id,deskripsi, periode_awal,periode_akhir,kode) VALUES (:id,:description,:periode_awal,:periode_akhir,:kode);";
         $query = $this->db->prepare($sql);
-        $query -> bindParam('X001', $id, PDO::PARAM_STR);
-        $query -> bindParam(':description', $id, PDO::PARAM_STR);
+        $query -> bindParam(':id', $id, PDO::PARAM_STR);
+        $query -> bindParam(':description', $description, PDO::PARAM_STR);
         $query -> bindParam(':periode_awal', $periode_awal, PDO::PARAM_STR);
         $query -> bindParam(':periode_akhir', $periode_akhir, PDO::PARAM_STR);
+        $query -> bindParam(':kode', $kode, PDO::PARAM_STR);
         $query -> execute();
     }
 

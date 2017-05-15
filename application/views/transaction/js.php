@@ -40,7 +40,7 @@
                           tr.append("<td>"+dprod["kuantitas"]+"</td>");
                           tr.append("<td>"+dprod["harga"]+"</td>");
                           tr.append("<td>"+dprod["sub_total"]+"</td>");
-                          tr.append("<td><a href='"+url+"index.php/ulasan?nama="+ dprod["nama"]+"' class='btn btn-primary btn-sm'>Ulas</a></td>");
+                          tr.append("<td><a href='""index.php/ulasan?nama="+dprod["nama"]+"' class='btn btn-primary btn-sm'>Ulas</a></td>");
                           //$.each(obj,function(_,text) {
                           //  tr.append("<td>"+text+"</td>")
                           //});
