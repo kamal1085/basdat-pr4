@@ -165,6 +165,16 @@ class Model
 
         return $query->fetchAll();
     }
+	
+	public function getProduk($kode)
+    {
+        $sql = "SELECT * FROM TOKOKEREN.produk WHERE kode_produk = :kode";
+        $query = $this->db->prepare($sql);
+        $query->bindParam(':kode', $kode, PDO::PARAM_STR);
+        $query->execute();
+
+        return $query->fetchAll();
+    }
 
     public function addProduk($kode_produk, $nama_produk, $harga_produk, $deskripsi_produk)
     {

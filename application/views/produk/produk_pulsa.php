@@ -10,7 +10,7 @@
                     <h3 class="panel-title">Form Membuat Produk Pulsa</h3>
                 </div>
                 <div class="panel-body">
-                    <form accept-charset="UTF-8" role="form" id="tokoForm" action="../produk/addProdukPulsa" method="post">
+                    <form accept-charset="UTF-8" role="form" id="produk_pulsa_form" action="<?php echo URL; ?>index.php/produk/addProdukPulsa" method="post">
                         <fieldset>
                             <div class="form-group">
                                 <label for="kode_produk" class="control-label">Kode Produk</label>
@@ -22,7 +22,7 @@
                             </div>
 							<div class="form-group">
                                 <label for="harga_produk" class="control-label">Harga</label>
-                                <input class="form-control" placeholder="Harga" name="harga_produk" type="text" required>
+                                <input class="form-control" placeholder="Harga" name="harga_produk" type="number" min="1" step="1" required>
                             </div>
 							<div class="form-group">
                                 <label for="deskripsi_produk" class="control-label">Deskripsi</label>
@@ -30,11 +30,17 @@
                             </div>
 							<div class="form-group">
                                 <label for="nominal_produk" class="control-label">Nominal</label>
-                                <input class="form-control" placeholder="Nominal" name="nominal_produk" type="text" required>
+                                <input class="form-control" placeholder="Nominal" name="nominal_produk" type="number" min="1" step="1" required>
                             </div>
+							<div class="alert alert-danger" <?php if (!isset($error_message)) echo "hidden" ?>>
+                                <?php echo $error_message; ?>
+                            </div>
+                            <div class="alert alert-success" <?php if (!isset($message)) echo "hidden" ?>>
+                                <?php echo $message; ?>
+                            </div>
+							<hr/>
+							<input class="btn btn-lg btn-primary btn-block" type="submit" value="Submit">
                         </fieldset>
-                        <hr/>
-                        <input class="btn btn-lg btn-primary btn-block" type="submit" value="Submit">
                     </form>
                 </div>
             </div>
