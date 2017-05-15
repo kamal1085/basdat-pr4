@@ -22,6 +22,8 @@ class Produk extends Controller
     //TODO
     public function shipped_produk()
     {
+		$subkategori = $this->model->getSubCategories();
+		
         require APP . 'views/_templates/header.php';
         require APP . 'views/_templates/customer_navbar.php';
         require APP . 'views/produk/shipped_produk.php';
@@ -52,8 +54,31 @@ class Produk extends Controller
 		}
     }
 	
+	public function addShippedProduk()
+    {
+		if (intval($_POST['min_grosir_produk']) > intval($_POST['max_grosir_produk'])) {
+            $this->error("Minimal Grosir harus kurang dari Maksimal Grosir");
+            return;
+        }
+		
+		$shippedProduk = $this->model->getProduk($_POST['kode_produk']);
+		if (count($shippedProduk) > 0) {
+            $this->error("Kode Produk telah digunakan, silahkan gunakan yang lain!");
+        } else {
+			$this->model->addProduk($_POST['kode_produk'], $_POST['nama_produk'], $_POST['harga_produk'], $_POST['deskripsi_produk']);
+			$toko = $this->model->getTokoByEmail($_SESSION['user']->email);
+			$this->model->addShippedProduk($_POST['kode_produk'], $_POST['subkategori_produk'], $toko[0], $_POST['isAsuransi'], $_POST['stok_produk'], $_POST['isBaru'], $_POST['min_order_produk'], $_POST['min_grosir_produk'], $_POST['max_grosir_produk'], $_POST['harga_grosir_produk'], $_POST['foto_produk']);
+
+			$this->success("Shipped Produk berhasil disimpan!");
+		}
+    }
+	
 	public function success($message)
     {
+		if (!$_SESSION['is_admin']) {
+			$subkategori = $this->model->getSubCategories();
+		}
+		
         require APP . 'views/_templates/header.php';
 		if (!$_SESSION['is_admin']) {
 			require APP . 'views/_templates/customer_navbar.php';
@@ -67,6 +92,10 @@ class Produk extends Controller
 	
 	public function error($error_message)
     {
+		if (!$_SESSION['is_admin']) {
+			$subkategori = $this->model->getSubCategories();
+		}
+		
         require APP . 'views/_templates/header.php';
 		if (!$_SESSION['is_admin']) {
 			require APP . 'views/_templates/customer_navbar.php';

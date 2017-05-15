@@ -166,6 +166,16 @@ class Model
         return $query->fetchAll();
     }
 	
+	public function getTokoByEmail($email)
+    {
+        $sql = "SELECT * FROM TOKOKEREN.toko WHERE  email_penjual = :email";
+        $query = $this->db->prepare($sql);
+        $query->bindParam(':email', $email, PDO::PARAM_STR);
+        $query->execute();
+
+        return $query->fetchAll(PDO::FETCH_COLUMN, 0);
+    }
+	
 	public function getProduk($kode)
     {
         $sql = "SELECT * FROM TOKOKEREN.produk WHERE kode_produk = :kode";
@@ -193,6 +203,24 @@ class Model
         $query = $this->db->prepare($sql);
         $query->bindParam(':kode_produk', $kode_produk, PDO::PARAM_STR);
         $query->bindParam(':nominal', $nominal_produk, PDO::PARAM_INT);
+        $query->execute();
+    }
+	
+	public function addShippedProduk($kode_produk, $kategori, $nama_toko, $isAsuransi, $stok, $isBaru, $minOrder, $minGrosir, $maxGrosir, $hargaGrosir, $foto)
+    {
+        $sql = "INSERT INTO TOKOKEREN.shipped_produk (kode_produk, kategori, nama_toko, is_asuransi, stok, is_baru, min_order, min_grosir, max_grosir, harga_grosir, foto) VALUES (:kode_produk, :kategori, :nama_toko, :isAsuransi, :stok, :isBaru, :minOrder, :minGrosir, :maxGrosir, :hargaGrosir, :foto);";
+        $query = $this->db->prepare($sql);
+        $query->bindParam(':kode_produk', $kode_produk, PDO::PARAM_STR);
+        $query->bindParam(':kategori', $kategori, PDO::PARAM_STR);
+		$query->bindParam(':nama_toko', $nama_toko, PDO::PARAM_STR);
+		$query->bindParam(':isAsuransi', $isAsuransi, PDO::PARAM_BOOL);
+		$query->bindParam(':stok', $stok, PDO::PARAM_INT);
+		$query->bindParam(':isBaru', $isBaru, PDO::PARAM_BOOL);
+		$query->bindParam(':minOrder', $minOrder, PDO::PARAM_INT);
+		$query->bindParam(':minGrosir', $minGrosir, PDO::PARAM_INT);
+		$query->bindParam(':maxGrosir', $maxGrosir, PDO::PARAM_INT);
+		$query->bindParam(':hargaGrosir', $hargaGrosir, PDO::PARAM_INT);
+		$query->bindParam(':foto', $foto, PDO::PARAM_STR);
         $query->execute();
     }
 
