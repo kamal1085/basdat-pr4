@@ -45,7 +45,7 @@
                                 <label for="subcategory_code" class="control-label">Subkategori</label>
                                <select class="form-control" name="subkategori" id="subkategori" required>
                                    <?php foreach ($list_subkategori as $key2) { ?>
-                                       <option><?php echo $key2->nama?></option>
+                                       <option value="<?=$key2->kode?>"><?=$key2->nama?></option>
                                    <?php } ?>
                                 </select>
                             </div>
@@ -58,4 +58,10 @@
         </div>
     </div>
 </div>
+
+<script>
+    $(document).ready(function(){
+        alert("bisa");
+    });
+</script>
 

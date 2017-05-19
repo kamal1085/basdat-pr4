@@ -11,11 +11,12 @@
                     <h3 class="panel-title">Komentar</h3>
                 </div>
                 <div class="panel-body">
-                    <form accept-charset="UTF-8" role="form" id="ulasanForm" action="./ulasan/addUlasan" method="post">
+                    <form accept-charset="UTF-8" role="form" id="ulasanForm" action="<?php echo URL; ?>index.php/ulasan/addUlasan" method="post">
                         <fieldset>
                             <div class="form-group">
                                 <label for="kode_produk" class="control-label">Kode Produk</label>
-                                <input class="form-control" placeholder="Kode Produk" name="kode_produk" type="text"
+                                <input class="form-control" placeholder="Kode Produk" name="kode_produk" 
+                                       value="<?php echo $kode?>" type="text"
                                        required>
                             </div>
                             <div class="form-group">

@@ -13,6 +13,8 @@ if (!$this) {
 
     <link href="<?php echo URL; ?>public/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo URL; ?>public/css/style.css" rel="stylesheet">
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+
 </head>
 <body>
 
