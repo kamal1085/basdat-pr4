@@ -283,15 +283,35 @@ class Model
         return $query->fetchAll();
     }
 
-    public function addPromo($description, $periode_awal, $periode_akhir, $kode)
+    public function addPromo($id,$description, $periode_awal, $periode_akhir, $kode)
     {
 
-        $sql = "INSERT INTO TOKOKEREN.promo (id,deskripsi, periode_awal, periode_akhir,kode) VALUES ('X001', : description, :periode_awal, :periode_akhir);";
+        $sql = "INSERT INTO TOKOKEREN.promo (id,deskripsi, periode_awal,periode_akhir,kode) VALUES (:id,:description,:periode_awal,:periode_akhir,:kode);";
         $query = $this->db->prepare($sql);
-        $query -> bindParam('X001', $id, PDO::PARAM_STR);
-        $query -> bindParam(':description', $id, PDO::PARAM_STR);
+        $query -> bindParam(':id', $id, PDO::PARAM_STR);
+        $query -> bindParam(':description', $description, PDO::PARAM_STR);
         $query -> bindParam(':periode_awal', $periode_awal, PDO::PARAM_STR);
         $query -> bindParam(':periode_akhir', $periode_akhir, PDO::PARAM_STR);
+        $query -> bindParam(':kode', $kode, PDO::PARAM_STR);
+        $query -> execute();
+    }
+
+    public function getShippedProduk($kategori)
+    {
+        $sql = "SELECT * FROM TOKOKEREN.shipped_produk WHERE kategori = :kategori";
+        $query = $this->db->prepare($sql);
+        $query -> bindParam(':kategori', $kategori, PDO::PARAM_STR);
+        $query -> execute();
+        return $query->fetchAll();
+    }
+
+    public function addPromoProduk($id, $kode)
+    {
+
+        $sql = "INSERT INTO TOKOKEREN.promo_produk (id_promo,kode_produk) VALUES (:id,:kode);";
+        $query = $this->db->prepare($sql);
+        $query -> bindParam(':id', $id, PDO::PARAM_STR);
+        $query -> bindParam(':kode', $kode, PDO::PARAM_STR);
         $query -> execute();
     }
 
@@ -305,15 +325,17 @@ class Model
         $query -> execute();
     }
     
-    public function addUlasan($kode_produk,$star,$komentar)
+    public function addUlasan($user,$kode_produk,$tanggal,$star,$komentar)
     {
-            $sql = "INSERT INTO TOKOKEREN.ulasan(email_pembeli,kode_produk,tanggal,rating,komentar) VALUES ('a@a.com',:kode_produk,'2017-12-01',:star,:komentar);";
+            $sql = "INSERT INTO TOKOKEREN.ulasan(email_pembeli,kode_produk,tanggal,rating,komentar) VALUES (:user,:kode_produk,:tanggal,:star,:komentar);";
         $query = $this->db->prepare($sql);
+        $query -> bindParam(':user', $user, PDO::PARAM_STR);
         $query -> bindParam(':kode_produk', $kode_produk, PDO::PARAM_STR);
+        $query -> bindParam(':tanggal', $tanggal, PDO::PARAM_STR);
         $query -> bindParam(':star', $star, PDO::PARAM_INT);
         $query -> bindParam(':komentar', $komentar, PDO::PARAM_STR);
         $query -> execute();
-        echo $sql;
+
     }
 
     public function addTransaksiPulsa($kode_produk,$nomor)

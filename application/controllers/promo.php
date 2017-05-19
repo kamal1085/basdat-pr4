@@ -16,18 +16,33 @@ class Promo extends Controller
 
     public function addPromo()
     {
+        $randid = rand(10,100);
+        $id = 'R'.$randid;
+        // echo $id;
     	$description = $_POST['description'];
     	$periode_awal = $_POST['periode_awal'];
     	$periode_akhir = $_POST['periode_akhir'];
     	$kode = $_POST['kode_promo'];
+        $kategori = $_POST['kategori'];
+        $subkategori = $_POST['subkategori'];
+
 
 
         if($periode_awal > $periode_akhir){
             echo "Something wrong";
         }else{
             echo "success";
-             $promo=$this->model->addPromo($description,$periode_awal,$periode_akhir,$periode_akhir,$kode);
+             $promo=$this->model->addPromo($id,$description,$periode_awal,$periode_akhir,$periode_akhir,$kode);
+             $tampung_ktgr=$this->model->getShippedProduk($subkategori);
+             // echo $tampung_ktgr[0];         
+             foreach ($tampung_ktgr as $row_ktgr) {
+                 $this->model->addPromoProduk($id,$row_ktgr->kode_produk);
+                // echo $row_ktgr->kode_produk;
+             }
+             
+
         }
+
 
     	// $promo=$this->model->addPromo($description,$periode_awal,$periode_akhir,$periode_akhir,$kode);
 
