@@ -12,6 +12,7 @@ class Promo extends Controller
         require APP . 'views/_templates/admin_navbar.php';
         require APP . 'views/promo/index.php';
         require APP . 'views/_templates/footer.php';
+		require APP . 'views/promo/js.php';
     }
 
     public function addPromo()
@@ -43,11 +44,24 @@ class Promo extends Controller
 
         }
 
-
     	// $promo=$this->model->addPromo($description,$periode_awal,$periode_akhir,$periode_akhir,$kode);
 
-        // header("location: " . URL . "index.php");
+        header("location: " . URL);
 
+    }
+	
+	public function getSubKategoriList()
+    {
+        if(!empty($_POST["kategori"])) {
+			$list_subkategori = $this->model->getSubKategori($_POST["kategori"]);
+			foreach($list_subkategori as $ls_sk) {
+				$subKat[] = array(
+					'kode' => $ls_sk->kode,
+					'nama' => $ls_sk->nama
+				);
+			}
+			echo json_encode($subKat);
+		}
     }
 
 }

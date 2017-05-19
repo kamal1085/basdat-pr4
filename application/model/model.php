@@ -111,7 +111,7 @@ class Model
 
     public function getSubKategori($kode)
     {
-        $sql = "SELECT * FROM TOKOKEREN.sub_kategori WHERE kode = :kode";
+        $sql = "SELECT * FROM TOKOKEREN.sub_kategori WHERE kode_kategori = :kode";
         $query = $this->db->prepare($sql);
         $query->bindParam(':kode', $kode, PDO::PARAM_STR);
         $query->execute();

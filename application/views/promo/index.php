@@ -33,9 +33,10 @@
                             </div>
                             <div class="form-group">
                                 <label for="category_name" class="control-label">Kategori</label>
-                               <select class="form-control" name="kategori" id="kategori" required>
+                               <select class="form-control" name="kategori" id="kategori" onChange="getSubKategori();" required>
+									<option value="" selected="selected" disabled>-- Pilih kategori --</option>
                                     <?php foreach ($list_kategori as $key) { ?>
-                                        <option><?php echo $key->nama?></option>
+                                        <option value="<?php echo $key->kode?>"><?php echo $key->nama?></option>
                                     <?php } ?>
                                     
                                    
@@ -44,9 +45,7 @@
                             <div class="form-group">
                                 <label for="subcategory_code" class="control-label">Subkategori</label>
                                <select class="form-control" name="subkategori" id="subkategori" required>
-                                   <?php foreach ($list_subkategori as $key2) { ?>
-                                       <option value="<?=$key2->kode?>"><?=$key2->nama?></option>
-                                   <?php } ?>
+									<option value="" selected="selected" disabled>-- Pilih subkategori --</option>
                                 </select>
                             </div>
                         </fieldset>
@@ -58,10 +57,4 @@
         </div>
     </div>
 </div>
-
-<script>
-    $(document).ready(function(){
-        alert("bisa");
-    });
-</script>
 
