@@ -19,13 +19,13 @@
                             </div>
                             <div class="form-group">
                                 <label for="lama_kirim" class="control-label">Lama Kirim</label>
-                                <input class="form-control" placeholder="Lama Kirim" name="lama_kirim" type="text"
+                                <input class="form-control" placeholder="Number Only" name="lama_kirim" type="text"
                                        required>
                             </div>
                             <div class="form-group">
                                 <label for="tarif" class="control-label">Tarif</label>
                                 <input class="form-control" placeholder="Tarif" name="tarif"
-                                       type="text"
+                                       type="number"
                                        required>
                             </div>
                         </fieldset>
@@ -36,5 +36,3 @@
             </div>
         </div>
     </div>
-</div>
-

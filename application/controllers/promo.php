@@ -30,7 +30,9 @@ class Promo extends Controller
 
 
         if($periode_awal > $periode_akhir){
-            echo "Something wrong";
+            // header("location: " . URL . "index.php");
+            //echo " <script>alert(\"Salah\")</script>";
+            echo "rama";
         }else{
             echo "success";
              $promo=$this->model->addPromo($id,$description,$periode_awal,$periode_akhir,$periode_akhir,$kode);
@@ -39,6 +41,7 @@ class Promo extends Controller
              foreach ($tampung_ktgr as $row_ktgr) {
                  $this->model->addPromoProduk($id,$row_ktgr->kode_produk);
                 // echo $row_ktgr->kode_produk;
+            header("location: " . URL);
              }
              
 
@@ -46,7 +49,7 @@ class Promo extends Controller
 
     	// $promo=$this->model->addPromo($description,$periode_awal,$periode_akhir,$periode_akhir,$kode);
 
-        header("location: " . URL);
+        // header("location: " . URL);
 
     }
 	
