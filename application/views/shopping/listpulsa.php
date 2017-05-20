@@ -84,7 +84,7 @@
 
                             <div class="form-group">
                                 <label for="nomor" class="control-label">Nomor HP / Token Listrik</label>
-                                <input class="form-control" placeholder="Nomor" name="nomor" id="nomor" type="text" required>
+                                <input class="form-control" placeholder="Nomor" maxlength="20" name="nomor" id="nomor" type="text" required>
                             </div>
                         </fieldset>
                         
