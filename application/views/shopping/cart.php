@@ -28,32 +28,27 @@
                             <th>Sub total</th>
                             
                             </tr>
-                            <tr>
-                            <td>
-                                P0000001
-                                </td>
-                                <td>Tas Flower 1
-                                </td>
-                                <td>4</td>
-                                <td>4</td>
-                                <td>75000</td>
-                                <td>300000</td>
-                            </tr>
-                            <tr>
-                            <td>
-                                P0000002
-                                </td>
-                                <td>Tas Flower 2
-                                </td>
-                                <td>3</td>
-                                <td>3</td>
-                                <td>80000</td>
-                                <td>240000</td>
-                                
-                            </tr>
+                             <?php foreach ($listcart as $tcart) {
+                              $berat = $tcart->berat;
+                              $sub_total = $tcart->sub_total;
+                              $subtotal += $sub_total;
+                              $berattotal += $berat;
+                              ?>
+    <tr>
+        <td><?php if (isset($tcart->kode_produk)) echo htmlspecialchars($tcart->kode_produk, ENT_QUOTES, 'UTF-8'); ?></td>
+        <td><?php if (isset($tcart->nama)) echo htmlspecialchars($tcart->nama, ENT_QUOTES, 'UTF-8'); ?></td>
+        <td><?php if (isset($tcart->berat)) echo htmlspecialchars($tcart->berat, ENT_QUOTES, 'UTF-8'); ?></td>
+        <td><?php if (isset($tcart->kuantitas)) echo htmlspecialchars($tcart->kuantitas, ENT_QUOTES, 'UTF-8'); ?></td>
+        <td><?php if (isset($tcart->harga)) echo htmlspecialchars($tcart->harga, ENT_QUOTES, 'UTF-8'); ?></td>
+        <td><?php if (isset($tcart->sub_total)) echo htmlspecialchars($tcart->sub_total, ENT_QUOTES, 'UTF-8'); ?></td>
+        
+    </tr>
 
+<?php } ?>
+                            
                         </table>
                         </div>
+                        <form accept-charset="UTF-8" role="form" id="produk_pulsa_form" action="<?php echo URL; ?>index.php/shopping/checkout" method="post">
                          <div class="row">
                           <div class="col-md-2 ">Alamat Kirim</div>
                           <div class="col-md-4 "> <textarea class="form-control" placeholder="Alamat Kirim" name="alamat"  >
@@ -65,12 +60,16 @@
         </div>
                          <div class="row">
                           <div class="col-md-2 ">Jasa Kirim</div>
-                          <div class="col-md-4 "><select class="form-control">
-                              <option>Jasa Kirim-1</option>
-                              <option>Jasa Kirim-2</option>
-                              <option>Jasa Kirim-3</option>
-                              <option>Jasa Kirim-4</option>
-                          </select>
+                          <div class="col-md-4 ">
+<select id="jasakirim" name="jasakirim" class="form-control" >
+                                 <option value="0">--Select--</option>
+                                <?php foreach ($listJasaKirim as $jasakirim) { ?>
+ <option value="<?php if (isset($jasakirim->nama)) echo htmlspecialchars($jasakirim->nama, ENT_QUOTES, 'UTF-8'); ?>"><?php if (isset($jasakirim->nama)) echo htmlspecialchars($jasakirim->nama, ENT_QUOTES, 'UTF-8'); ?></option>
+<?php } ?>
+                               
+                                </select>
+                           <input type="hidden" id="totalberat" name="totalberat" value="<?php echo $berattotal;?>">
+                           <input type="hidden" id="subtotal" name="subtotal" value="<?php echo $subtotal;?>">
                           </div>
                         </div>
  <div class="row">
@@ -78,9 +77,10 @@
         </div>
                          <div class="row">
           <div class="col-md-6 "> 
- <button type="button" class="btn btn-primary btn-sm">Checkout</button>
+ <button type="Submit" class="btn btn-primary btn-sm">Checkout</button>
           </div>
         </div>
+        </form>
                         </div>
                     </div>
                 </div>

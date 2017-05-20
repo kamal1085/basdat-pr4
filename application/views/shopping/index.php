@@ -19,7 +19,7 @@
                     </div>
                     <div class="col-md-3">
                     
-                       <a class="btn btn-lg btn-primary btn-block" href="<?php echo URL; ?>index.php/shopping/listproduk"
+                       <a class="btn btn-lg btn-primary btn-block" href="<?php echo URL; ?>index.php/shopping/produktoko"
                        role="button">Beli Barang</a>
                     </div>
                 </div>

@@ -5,35 +5,9 @@
 
 
 <div class="container">
-    <div id="frmSelectToko" class="row">
-        <div class="col-md-6">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Form Pilih Toko</h3>
-                </div>
-                <div class="panel-body">
-                    <div class="col-md-6">
-                        <fieldset>
-                            <div class="form-group">
-                                <label for="email" class="control-label">Nama Toko</label>
-                                <select class="form-control" >
-                                    <option>Toko 1</option>
-                                    <option>Toko 2</option>
-                                    <option>Toko 3</option>
-                                    <option>Toko 4</option>
-                                    <option>Toko 5</option>
-                                </select>
-                            </div>
-                            
-                            <button class="btn btn-lg btn-success btn-block" id="submitShowProduct">Submit</button> 
-                        </fieldset>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+   
 
-    <div id="listProduk" class="row" style="display: none;">
+    <div id="listProduk" class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
@@ -46,7 +20,13 @@
                                 Kategori : 
                             </div>
                             <div class="col-md-4">
-                                <select class="form-control" ><option>Kategori-1</option></select>
+                                <select id="katUtama" class="form-control" >
+                                 <option value="0">--Select--</option>
+                                <?php foreach ($listkategori as $tkat) { ?>
+ <option value="<?php if (isset($tkat->kode)) echo htmlspecialchars($tkat->kode, ENT_QUOTES, 'UTF-8'); ?>"><?php if (isset($tkat->nama)) echo htmlspecialchars($tkat->nama, ENT_QUOTES, 'UTF-8'); ?></option>
+<?php } ?>
+                               
+                                </select>
                             </div>
                         </div>
                         <div class="row">
@@ -54,10 +34,17 @@
                                Sub Kategori :  
                             </div>
                              <div class="col-md-4">
-                                <select class="form-control" ><option>Sub Kategori-1</option></select>
+                                <select id="subkat" class="form-control" ><option value="0">--Select--</option></select>
                             </div>
                         </div>
-                        <table class="table table-striped">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <input type="hidden" id="hftokoid" name="hftokoid" value="<?php echo $tokoid; ?>">
+                                 <button class="btn btn-sm btn-success btn-block" id="filterProduk">Filter</button> 
+                            </div>
+                        </div>
+                        <div class="row">
+                        <table class="table table-striped" id="tlistproduk">
                         <tr>
                             <th>
                             Kode Produk
@@ -73,43 +60,40 @@
                             <th>Harga grosir</th>
                             <th>Beli</th>
                             </tr>
-                            <tr>
-                            <td>
-                                P0000001
-                                </td>
-                                <td>Tas Flower 1
-                                </td>
-                                <td>75000</td>
-                                <td>KOSONG</td>
-                                <td>TRUE</td>
-                                <td>30</td>
-                                <td>TRUE</td>
-                                <td>60000</td>
-                                <td>
-                                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalAddCart">
+                             <?php foreach ($listproduk as $tproduk) { ?>
+    <tr>
+        <td><?php if (isset($tproduk->kode_produk)) echo htmlspecialchars($tproduk->kode_produk, ENT_QUOTES, 'UTF-8'); ?></td>
+        <td><?php if (isset($tproduk->nama)) echo htmlspecialchars($tproduk->nama, ENT_QUOTES, 'UTF-8'); ?></td>
+        <td><?php if (isset($tproduk->harga)) echo htmlspecialchars($tproduk->harga, ENT_QUOTES, 'UTF-8'); ?></td>
+        <td><?php if (isset($tproduk->deskripsi)) echo htmlspecialchars($tproduk->deskripsi, ENT_QUOTES, 'UTF-8'); ?></td>
+        <td><?php if (isset($tproduk->is_asuransi)) echo htmlspecialchars($tproduk->is_asuransi, ENT_QUOTES, 'UTF-8'); ?></td>
+         <td><?php if (isset($tproduk->stok)) echo htmlspecialchars($tproduk->stok, ENT_QUOTES, 'UTF-8'); ?></td>
+          <td><?php if (isset($tproduk->is_baru)) echo htmlspecialchars($tproduk->is_baru, ENT_QUOTES, 'UTF-8'); ?></td>
+           <td><?php if (isset($tproduk->harga_grosir)) echo htmlspecialchars($tproduk->harga_grosir, ENT_QUOTES, 'UTF-8'); ?></td>
+         <td> <button type="button" class="btn btn-primary btn-sm" onclick="loadFormBeli('<?php if (isset($tproduk->kode_produk)) echo htmlspecialchars($tproduk->kode_produk, ENT_QUOTES, 'UTF-8'); ?>','<?php if (isset($tproduk->harga)) echo htmlspecialchars($tproduk->harga, ENT_QUOTES, 'UTF-8'); ?>');" >
                                       Beli
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                            <td>
-                                P0000002
-                                </td>
-                                <td>Tas Flower 2
-                                </td>
-                                <td>80000</td>
-                                <td>KOSONG</td>
-                                <td>TRUE</td>
-                                <td>140</td>
-                                <td>TRUE</td>
-                                <td>70000</td>
-                                <td>
-                                  <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalAddCart">
-                                      Beli
-                                    </button> </td>
-                            </tr>
+                                    </button></td>
+    </tr>
+
+<?php } ?>
+                              
 
                         </table>
+                        </div>
+                         <div class="row">
+                        <div class="col-md-12">
+                            <ul class="pagination" id="pagingprod">
+                            <?php for ($i=0; $i < $totalProduct/10; $i++) { 
+                              $page=$i*10;
+                              $currentPage= '/index.php/shopping/listproduk/' . $tokoid . '/' . $page;
+                              // echo ($_SERVER['PHP_SELF']);
+                              //  echo ($currentPage);
+                              ?>
+                               <li <?php if ($_SERVER['PHP_SELF'] == $currentPage ) echo 'class="active"' ?>><a href="<?php echo URL; ?>index.php/shopping/listProduk/<?php echo $tokoid; ?>/<?php echo $i*10; ?>"><?php echo $i+1; ?></a></li>
+                             <?php } ?>
+                            </ul>
+                        </div>
+                    </div>
                     </div>
                 </div>
             </div>
@@ -125,23 +109,27 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel">Masukkan Ke Keranjang Belanja</h4>
       </div>
+      <form accept-charset="UTF-8" role="form" id="produk_pulsa_form" action="<?php echo URL; ?>index.php/shopping/addKeranjangBelanja" method="post">
       <div class="modal-body">
         <fieldset>
                             <div class="form-group">
-                                <label for="email" class="control-label">Berat Total</label>
+                                <label for="berat" class="control-label">Berat Total</label>
                                 <input class="form-control" placeholder="Berat Total"  name="berat" type="text">
+                                  <input type="hidden" name="kodeproduk" id="kodeproduk">
+                                <input type="hidden" name="harga" id="harga">     
                             </div>
                             <div class="form-group">
-                                <label for="password" class="control-label">Jumlah Barang</label>
-                                <input class="form-control" placeholder="Jumlah Barang" name="nomor" type="text">
+                                <label for="kuantitas" class="control-label">Jumlah Barang</label>
+                                <input class="form-control" placeholder="Jumlah Barang" name="kuantitas" type="text">
                             </div>
                             
                         </fieldset>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" id="submitCart" class="btn btn-primary" >Submit</button>
+        <button type="Submit" id="submitCart" class="btn btn-primary" >Submit</button>
       </div>
+      </form>
     </div>
   </div>
 </div>
