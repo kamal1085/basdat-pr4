@@ -29,10 +29,13 @@
         
 
         var  y = $("#nomor").val();
-
-        if (!$.isNumeric(y)) {
+        //alert(y);
+        if (y != null && y != '') {
+            if (!$.isNumeric(y)) {
             alert('Nomor Harus angka');
             return false;
+        }    
         }
+        
     }
 </script>
