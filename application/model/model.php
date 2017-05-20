@@ -156,6 +156,16 @@ class Model
         return $query->fetchAll();
     }
 	
+	public function getJasaKirim($nama)
+    {
+        $sql = "SELECT * FROM TOKOKEREN.jasa_kirim WHERE nama = :nama";
+        $query = $this->db->prepare($sql);
+        $query->bindParam(':nama', $nama, PDO::PARAM_STR);
+        $query->execute();
+
+        return $query->fetchAll();
+    }
+	
 	public function getToko($nama)
     {
         $sql = "SELECT * FROM TOKOKEREN.toko WHERE  nama = :nama";
