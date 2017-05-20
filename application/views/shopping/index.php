@@ -13,7 +13,7 @@
                 </div>
                 <div class="panel-body">
                     <div class="col-md-3">
-                    <a class="btn btn-lg btn-primary btn-block" href="<?php echo URL; ?>index.php/shopping/listpulsa"
+                    <a class="btn btn-lg btn-primary btn-block" href="<?php echo URL; ?>index.php/shopping/listpulsa/0"
                        role="button">Beli Pulsa</a>
                        
                     </div>

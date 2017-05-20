@@ -10,9 +10,11 @@ class Shopping extends Controller
         require APP . 'views/_templates/footer.php';
     }
 
-    public function listpulsa()
+    public function listpulsa($offset)
     {
-      $listpulsa = $this->model->getProdukPulsa();
+      $listpulsa = $this->model->getProdukPulsa($offset);
+      $totalProduct =  $this->model->getCountProdukPulsa();
+
 
         require APP . 'views/_templates/header.php';
          require APP . 'views/_templates/customer_navbar.php';
@@ -25,8 +27,10 @@ class Shopping extends Controller
     {
         $kodeproduk = $_POST['kodeproduk'];
         $nomor = $_POST['nomor'];
-       
-        $jasa_kirim = $this->model->addJasaKirim($nama, $lama_kirim, $tarif);
+       $totalbayar = $_POST['hargabayar'];
+       $nominal = $_POST['nominal'];
+
+        $transaksiresult = $this->model->addTransaksiPulsa($kodeproduk,$nomor,$totalbayar,$_SESSION['user']->email,$nominal);
 
         header("location: " . URL . "index.php");
     }
