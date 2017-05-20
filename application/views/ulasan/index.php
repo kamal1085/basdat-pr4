@@ -43,6 +43,9 @@
                                 <label for="komentar" class="control-label">Komentar</label>
                                <textarea class="form-control" placeholder="Enter comment here..." name="komentar" required></textarea>
                             </div>
+                            <div class="alert alert-danger" <?php if (!isset($error_message)) echo "hidden" ?>>
+                                <?php echo $error_message; ?>
+                            </div>
                         </fieldset>
                         <hr/>
                         <input class="btn btn-lg btn-primary btn-block" id="submit" type="submit" value="Submit">

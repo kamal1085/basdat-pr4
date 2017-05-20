@@ -30,9 +30,7 @@ class Promo extends Controller
 
 
         if($periode_awal > $periode_akhir){
-            // header("location: " . URL . "index.php");
-            //echo " <script>alert(\"Salah\")</script>";
-            echo "rama";
+            $this->error("Periode Awal harus lebih kecil dari Periode Akhir");  
         }else{
             echo "success";
              $promo=$this->model->addPromo($id,$description,$periode_awal,$periode_akhir,$periode_akhir,$kode);
@@ -46,10 +44,6 @@ class Promo extends Controller
              
 
         }
-
-    	// $promo=$this->model->addPromo($description,$periode_awal,$periode_akhir,$periode_akhir,$kode);
-
-        // header("location: " . URL);
 
     }
 	
@@ -65,6 +59,14 @@ class Promo extends Controller
 			}
 			echo json_encode($subKat);
 		}
+    }
+
+    public function error($error_message)
+    {   
+        require APP . 'views/_templates/header.php';
+        require APP . 'views/_templates/admin_navbar.php';
+        require APP . 'views/promo/index.php';
+        require APP . 'views/_templates/footer.php';
     }
 
 }

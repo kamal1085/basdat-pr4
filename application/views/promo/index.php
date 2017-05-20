@@ -48,6 +48,9 @@
 									<option value="" selected="selected" disabled>-- Pilih subkategori --</option>
                                 </select>
                             </div>
+                            <div class="alert alert-danger" <?php if (!isset($error_message)) echo "hidden" ?>>
+                                <?php echo $error_message; ?>
+                            </div>
                         </fieldset>
                         <hr/>
                         <input class="btn btn-lg btn-primary btn-block" type="submit" value="Submit">

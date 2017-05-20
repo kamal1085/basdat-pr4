@@ -19,24 +19,16 @@
                             </div>
                             <div class="form-group">
                                 <label for="lama_kirim" class="control-label">Lama Kirim</label>
-<<<<<<< HEAD
-                                <input class="form-control" placeholder="Number Only" name="lama_kirim" type="text"
-=======
                                 <input class="form-control" placeholder="Lama Kirim" name="lama_kirim" type="number" min="1" step="1"
->>>>>>> 6f24574b0d66cd8aa334fbfef1176ecde0c09a76
                                        required>
                             </div>
                             <div class="form-group">
                                 <label for="tarif" class="control-label">Tarif</label>
                                 <input class="form-control" placeholder="Tarif" name="tarif"
-<<<<<<< HEAD
-                                       type="number"
-=======
                                        type="number" min="1" step="1"
->>>>>>> 6f24574b0d66cd8aa334fbfef1176ecde0c09a76
                                        required>
                             </div>
-							<div class="alert alert-danger" <?php if (!isset($error_message)) echo "hidden" ?>>
+                            <div class="alert alert-danger" <?php if (!isset($error_message)) echo "hidden" ?>>
                                 <?php echo $error_message; ?>
                             </div>
                             <div class="alert alert-success" <?php if (!isset($message)) echo "hidden" ?>>
@@ -50,3 +42,4 @@
             </div>
         </div>
     </div>
+</div>
