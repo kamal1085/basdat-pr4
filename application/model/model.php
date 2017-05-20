@@ -253,14 +253,25 @@ class Model
         $query->execute();
     }
 
-    public function getProdukPulsa()
+    public function getProdukPulsa($offset)
     { 
-        $sql = "select p.kode_produk, p.nama, p.harga, p.deskripsi, pp.nominal from TOKOKEREN.produk p, TOKOKEREN.produk_pulsa pp where p.kode_produk = pp.kode_produk order by kode_produk asc;";
+        $sql = "select p.kode_produk, p.nama, p.harga, p.deskripsi, pp.nominal from TOKOKEREN.produk p, TOKOKEREN.produk_pulsa pp where p.kode_produk = pp.kode_produk order by kode_produk asc
+        limit 10 offset $offset;";
  
         $query = $this->db->prepare($sql);
         $query->execute();
 
         return $query->fetchAll();
+    }
+
+    public function getCountProdukPulsa()
+    { 
+        $sql = "select pp.* from TOKOKEREN.produk p, TOKOKEREN.produk_pulsa pp where p.kode_produk = pp.kode_produk;";
+ 
+        $query = $this->db->prepare($sql);
+        $query->execute();
+
+        return $query->rowCount();
     }
 
     public function getAllTransaksiShipped($email)
@@ -338,18 +349,32 @@ class Model
 
     }
 
-    public function addTransaksiPulsa($kode_produk,$nomor)
+    public function addTransaksiPulsa($kode_produk,$nomor,$totalbayar,$email,$nominal)
     {
+        $sqlcount = "select * from TOKOKEREN.transaksi_pulsa;";
+        $querycount = $this->db->prepare($sqlcount);
+        $querycount->execute();
+        $totaltransaksip= $querycount->rowCount() + 1;
+//DDF3125012
+//INVP0001000
+//INVP0001003
+        date_default_timezone_set("America/New_York");
+        $runnumber ="";
+        $noinvoice = "INVP" . substr("000000" .  $totaltransaksip, -6);
+        //echo $noinvoice;
+        $tanggal = date("Y-m-d");
+        $waktu=date('Y-m-d H:i:s');
+        $stat=2;
         $sql = "INSERT INTO TOKOKEREN.transaksi_pulsa VALUES (:no_invoice,:tanggal,:waktu_bayar,:status,:total_bayar,:email_pembeli,:nominal,:nomor,:kode_produk);";
         $query = $this->db->prepare($sql);
-         $query -> bindParam(':no_invoice', $nama, PDO::PARAM_STR);
-          $query -> bindParam(':nama', $nama, PDO::PARAM_STR);
-           $query -> bindParam(':nama', $nama, PDO::PARAM_STR);
-            $query -> bindParam(':nama', $nama, PDO::PARAM_STR);
-             $query -> bindParam(':nama', $nama, PDO::PARAM_STR);
-              $query -> bindParam(':nama', $nama, PDO::PARAM_STR);
-               $query -> bindParam(':nama', $nama, PDO::PARAM_STR);
-                $query -> bindParam(':nama', $nama, PDO::PARAM_STR);
+         $query -> bindParam(':no_invoice', $noinvoice, PDO::PARAM_STR);
+          $query -> bindParam(':tanggal', $tanggal, PDO::PARAM_STR);
+           $query -> bindParam(':waktu_bayar', $waktu, PDO::PARAM_STR);
+            $query -> bindParam(':status', $stat, PDO::PARAM_STR);
+             $query -> bindParam(':total_bayar', $totalbayar, PDO::PARAM_STR);
+              $query -> bindParam(':email_pembeli', $email, PDO::PARAM_STR);
+               $query -> bindParam(':nominal', $nominal, PDO::PARAM_STR);
+                $query -> bindParam(':nomor', $nomor, PDO::PARAM_STR);
                  $query -> bindParam(':kode_produk', $kode_produk, PDO::PARAM_STR);
         $query -> execute();
     }
