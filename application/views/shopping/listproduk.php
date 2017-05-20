@@ -114,20 +114,20 @@
         <fieldset>
                             <div class="form-group">
                                 <label for="berat" class="control-label">Berat Total</label>
-                                <input class="form-control" placeholder="Berat Total"  name="berat" type="text">
+                                <input class="form-control" placeholder="Berat Total"  name="berat" id="berat" type="text" required>
                                   <input type="hidden" name="kodeproduk" id="kodeproduk">
                                 <input type="hidden" name="harga" id="harga">     
                             </div>
                             <div class="form-group">
                                 <label for="kuantitas" class="control-label">Jumlah Barang</label>
-                                <input class="form-control" placeholder="Jumlah Barang" name="kuantitas" type="text">
+                                <input class="form-control" placeholder="Jumlah Barang" name="kuantitas" id="kuantitas" type="text" required>
                             </div>
                             
                         </fieldset>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="Submit" id="submitCart" class="btn btn-primary" >Submit</button>
+        <button type="Submit" onclick="return validate_field();" id="submitCart" class="btn btn-primary" >Submit</button>
       </div>
       </form>
     </div>

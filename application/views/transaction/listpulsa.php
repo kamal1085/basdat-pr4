@@ -43,6 +43,20 @@
                             
                             
                         </table>
+                         <div class="row">
+                        <div class="col-md-12">
+                            <ul class="pagination">
+                            <?php for ($i=0; $i < $totalProduct/10; $i++) { 
+                              $page=$i*10;
+                              $currentPage= '/index.php/transaction/listpulsa/' . $page;
+                               //echo ($_SERVER['PHP_SELF']);
+                              //  echo ($currentPage);
+                              ?>
+                               <li <?php if ($_SERVER['PHP_SELF'] == $currentPage ) echo 'class="active"' ?>><a href="<?php echo URL; ?>index.php/transaction/listpulsa/<?php echo $i*10; ?>"><?php echo $i+1; ?></a></li>
+                             <?php } ?>
+                            </ul>
+                        </div>
+                    </div>
                     </div>
                 </div>
             </div>

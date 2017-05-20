@@ -51,8 +51,8 @@
                         <form accept-charset="UTF-8" role="form" id="produk_pulsa_form" action="<?php echo URL; ?>index.php/shopping/checkout" method="post">
                          <div class="row">
                           <div class="col-md-2 ">Alamat Kirim</div>
-                          <div class="col-md-4 "> <textarea class="form-control" placeholder="Alamat Kirim" name="alamat"  >
-                        </textarea> 
+                          <div class="col-md-4 "> 
+                            <textarea class="form-control" required name="alamat"  ></textarea> 
                           </div>
                         </div>
                         <div class="row">
