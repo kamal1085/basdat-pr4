@@ -22,4 +22,17 @@
         $('#nominal').val(nominal);
         $('#modalBuyPulsa').modal('show');
     }
+
+     function validate_field()
+    {
+
+        
+
+        var  y = $("#nomor").val();
+
+        if (!$.isNumeric(y)) {
+            alert('Nomor Harus angka');
+            return false;
+        }
+    }
 </script>

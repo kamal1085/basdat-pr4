@@ -10,9 +10,10 @@ class Transaction extends Controller
         require APP . 'views/_templates/footer.php';
     }
 
-    public function listpulsa()
+    public function listpulsa($offset)
     {
-        $transpulsa = $this->model->getAllTransaksiPulsa($_SESSION['user']->email);
+        $transpulsa = $this->model->getAllTransaksiPulsa($_SESSION['user']->email, $offset);
+$totalProduct =  $this->model->getCountTransaksiPulsa($_SESSION['user']->email);
 
         //echo $transpulsa;
         require APP . 'views/_templates/header.php';

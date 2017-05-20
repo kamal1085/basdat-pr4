@@ -74,22 +74,24 @@
       <div class="modal-body">
        
        <fieldset>
+
                             <div class="form-group">
                                 <label for="kodeproduk" class="control-label">Kode Produk</label>
                                 <input class="form-control" placeholder="Kode Produk" id="kodeproduk" name="kodeproduk" type="text" >
                                 <input type="hidden" name="hargabayar" id="hargabayar">
                                 <input type="hidden" name="nominal" id="nominal">                                
                             </div>
+
                             <div class="form-group">
                                 <label for="nomor" class="control-label">Nomor HP / Token Listrik</label>
-                                <input class="form-control" placeholder="Nomor" name="nomor" type="text">
+                                <input class="form-control" placeholder="Nomor" maxlength="20" name="nomor" id="nomor" type="text" required>
                             </div>
                         </fieldset>
                         
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="Submit" id="submitPulsa" class="btn btn-primary" >Submit</button>
+        <button type="Submit" id="submitPulsa" onclick="return validate_field();"  class="btn btn-primary" >Submit</button>
       </div>
       </form>
     </div>

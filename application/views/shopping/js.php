@@ -44,6 +44,24 @@
         });      
 });
 
+    function validate_field()
+    {
+
+        var  x = $("#berat").val();
+
+        if (!$.isNumeric(x)) {
+            alert('Input Berat Harus angka');
+            return false;
+        }
+
+        var  y = $("#kuantitas").val();
+
+        if (!$.isNumeric(y)) {
+            alert('Input Jumlah Barang Harus angka');
+            return false;
+        }
+    }
+
     function loadFormBeli(kodeproduk,harga)
     {
         $('#kodeproduk').val(kodeproduk);

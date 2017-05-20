@@ -138,9 +138,9 @@ class Model
         $query->execute();
     }
 
-    public function getAllTransaksiPulsa($email)
+    public function getAllTransaksiPulsa($email,$offset)
     {
-        $sql = "SELECT tp.no_invoice, p.nama, tp.tanggal, case when tp.status = 1 then 'Transaksi Dilakukan' else 'Pulsa Sudah dibayar' end statusstr, tp.total_bayar, tp.nominal, tp.nomor  FROM TOKOKEREN.transaksi_pulsa tp, TOKOKEREN.produk_pulsa pp, TOKOKEREN.produk p where tp.kode_produk = pp.kode_produk and pp.kode_produk = p.kode_produk and email_pembeli='$email' ;";
+        $sql = "SELECT tp.no_invoice, p.nama, tp.tanggal, case when tp.status = 1 then 'Transaksi Dilakukan' else 'Pulsa Sudah dibayar' end statusstr, tp.total_bayar, tp.nominal, tp.nomor  FROM TOKOKEREN.transaksi_pulsa tp, TOKOKEREN.produk_pulsa pp, TOKOKEREN.produk p where tp.kode_produk = pp.kode_produk and pp.kode_produk = p.kode_produk and email_pembeli='$email' limit 10 offset $offset;";
         $query = $this->db->prepare($sql);
         $query->execute();
 
@@ -285,6 +285,16 @@ class Model
     { 
         $sql = "select pp.* from TOKOKEREN.produk p, TOKOKEREN.produk_pulsa pp where p.kode_produk = pp.kode_produk;";
  
+        $query = $this->db->prepare($sql);
+        $query->execute();
+
+        return $query->rowCount();
+    }
+
+    public function getCountTransaksiPulsa($email)
+    { 
+        $sql = "SELECT tp.no_invoice, p.nama, tp.tanggal, case when tp.status = 1 then 'Transaksi Dilakukan' else 'Pulsa Sudah dibayar' end statusstr, tp.total_bayar, tp.nominal, tp.nomor  FROM TOKOKEREN.transaksi_pulsa tp, TOKOKEREN.produk_pulsa pp, TOKOKEREN.produk p where tp.kode_produk = pp.kode_produk and pp.kode_produk = p.kode_produk and email_pembeli='$email'";
+
         $query = $this->db->prepare($sql);
         $query->execute();
 
@@ -531,5 +541,11 @@ $query = $this->db->prepare($sql);
               $queryitem -> bindParam(':sub_total', $cart->sub_total, PDO::PARAM_STR);
         $queryitem -> execute();
         }
+
+         $sqlremovekb = "delete from TOKOKEREN.keranjang_belanja where pembeli =:email";
+        $queryremove = $this->db->prepare($sqlremovekb);
+         $queryremove -> bindParam(':email', $email, PDO::PARAM_STR);
+        
+        $queryremove -> execute();
     }
 }
