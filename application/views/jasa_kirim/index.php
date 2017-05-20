@@ -28,7 +28,7 @@
                                        type="number" min="1" step="1"
                                        required>
                             </div>
-							<div class="alert alert-danger" <?php if (!isset($error_message)) echo "hidden" ?>>
+                            <div class="alert alert-danger" <?php if (!isset($error_message)) echo "hidden" ?>>
                                 <?php echo $error_message; ?>
                             </div>
                             <div class="alert alert-success" <?php if (!isset($message)) echo "hidden" ?>>
@@ -43,4 +43,3 @@
         </div>
     </div>
 </div>
-
