@@ -78,7 +78,7 @@ class Produk extends Controller
 
     public function addShippedProduk()
     {
-        if (!$_SESSION['is_admin']) {
+        if ($_SESSION['is_admin']) {
             header("location: " . URL . "index.php");
             return;
         }
