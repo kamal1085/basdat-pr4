@@ -74,8 +74,9 @@ class Model
 
     public function getKategori($kode)
     {
-        $sql = "SELECT * FROM TOKOKEREN.kategori_utama";
+        $sql = "SELECT * FROM TOKOKEREN.kategori_utama WHERE kode = :kode";
         $query = $this->db->prepare($sql);
+        $query->bindParam(':kode', $kode, PDO::PARAM_STR);
         $query->execute();
 
         return $query->fetchAll();
