@@ -40,7 +40,12 @@
                           tr.append("<td>"+dprod["kuantitas"]+"</td>");
                           tr.append("<td>"+dprod["harga"]+"</td>");
                           tr.append("<td>"+dprod["sub_total"]+"</td>");
-                          tr.append("<td><a href='"+url+"ulasan/getUlasan/"+dprod["kode_produk"]+"' class='btn btn-primary btn-sm'>Ulas</a></td>");
+                          if (dprod["email_pembeli"]!=null && dprod["email_pembeli"]!='') {
+                          tr.append("<td><a disabled  href='"+url+"ulasan/getUlasan/"+dprod["kode_produk"]+"' class='btn btn-primary btn-sm'>Ulas</a></td>");  
+                          }
+                          else{
+                            tr.append("<td><a href='"+url+"ulasan/getUlasan/"+dprod["kode_produk"]+"' class='btn btn-primary btn-sm'>Ulas</a></td>");
+                          }
                           //$.each(obj,function(_,text) {
                           //  tr.append("<td>"+text+"</td>")
                           //});

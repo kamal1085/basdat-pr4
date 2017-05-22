@@ -66,9 +66,40 @@
         <td><?php if (isset($tproduk->nama)) echo htmlspecialchars($tproduk->nama, ENT_QUOTES, 'UTF-8'); ?></td>
         <td><?php if (isset($tproduk->harga)) echo htmlspecialchars($tproduk->harga, ENT_QUOTES, 'UTF-8'); ?></td>
         <td><?php if (isset($tproduk->deskripsi)) echo htmlspecialchars($tproduk->deskripsi, ENT_QUOTES, 'UTF-8'); ?></td>
-        <td><?php if (isset($tproduk->is_asuransi)) echo htmlspecialchars($tproduk->is_asuransi, ENT_QUOTES, 'UTF-8'); ?></td>
+        <td><?php if (isset($tproduk->is_asuransi)) {
+            if ($tproduk->is_asuransi) {
+              ?>
+              True
+              <?php 
+            }
+            else{
+              ?>
+              False
+              <?php
+            }
+          }
+          else{
+            ?>
+            False
+            <?php 
+            } ?></td>
          <td><?php if (isset($tproduk->stok)) echo htmlspecialchars($tproduk->stok, ENT_QUOTES, 'UTF-8'); ?></td>
-          <td><?php if (isset($tproduk->is_baru)) echo htmlspecialchars($tproduk->is_baru, ENT_QUOTES, 'UTF-8'); ?></td>
+          <td><?php if (isset($tproduk->is_baru)) {
+              if ($tproduk->is_baru) {
+                ?>
+                True
+                <?php
+                }
+                else{
+                  ?>
+                  False
+                  <?php
+                }}
+                else{
+              ?>
+              False
+              <?php
+             } ?></td>
            <td><?php if (isset($tproduk->harga_grosir)) echo htmlspecialchars($tproduk->harga_grosir, ENT_QUOTES, 'UTF-8'); ?></td>
          <td> <button type="button" class="btn btn-primary btn-sm" onclick="loadFormBeli('<?php if (isset($tproduk->kode_produk)) echo htmlspecialchars($tproduk->kode_produk, ENT_QUOTES, 'UTF-8'); ?>','<?php if (isset($tproduk->harga)) echo htmlspecialchars($tproduk->harga, ENT_QUOTES, 'UTF-8'); ?>');" >
                                       Beli

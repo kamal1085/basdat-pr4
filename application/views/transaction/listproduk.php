@@ -2,7 +2,9 @@
     exit(header('HTTP/1.0 403 Forbidden'));
 } ?>
 
-
+<style type="text/css">
+    a[disabled] { pointer-events: none; }
+</style>
 
 <div class="container">
     
