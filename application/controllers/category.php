@@ -4,6 +4,11 @@ class Category extends Controller
 {
     public function index()
     {
+        if (!$_SESSION['is_admin']) {
+            header("location: " . URL . "index.php");
+            return;
+        }
+
         require APP . 'views/_templates/header.php';
         require APP . 'views/_templates/admin_navbar.php';
         require APP . 'views/category/index.php';
@@ -13,6 +18,11 @@ class Category extends Controller
 
     public function submit()
     {
+        if (!$_SESSION['is_admin']) {
+            header("location: " . URL . "index.php");
+            return;
+        }
+
         if (!isset($_POST['category_code'])) {
             $this->error("Mohon masukan kode kategori!");
             return;
@@ -84,6 +94,11 @@ class Category extends Controller
 
     public function success($message)
     {
+        if (!$_SESSION['is_admin']) {
+            header("location: " . URL . "index.php");
+            return;
+        }
+
         require APP . 'views/_templates/header.php';
         require APP . 'views/_templates/admin_navbar.php';
         require APP . 'views/category/index.php';
@@ -93,6 +108,11 @@ class Category extends Controller
 
     public function error($error_message)
     {
+        if (!$_SESSION['is_admin']) {
+            header("location: " . URL . "index.php");
+            return;
+        }
+
         require APP . 'views/_templates/header.php';
         require APP . 'views/_templates/admin_navbar.php';
         require APP . 'views/category/index.php';
